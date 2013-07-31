@@ -1,0 +1,9 @@
+#appname:piglet
+#appid:com.olivalabs.piglet
+#type:mobile
+#guid:47f5a2d3-6009-4a55-904f-8601850fbb62
+#version:1.0
+#publisher:John Oliva
+#url:http://olivalabs.com
+#image:appicon.png
+#desc:Application to catalog and rate any physical thing the user comes in contact with.

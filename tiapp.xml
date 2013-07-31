@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <property name="acs-oauth-secret-production" type="string">rTWs9cHxcAtjiAjqSi91YThgLhMuQCfs</property>
+    <property name="acs-oauth-key-production" type="string">MQHiMjmpnUBdrVo9JL7wX4p0Mm1jLGr3</property>
+    <property name="acs-api-key-production" type="string">rpKqynpLmHAvwb7PcFHGncngHdKIuklF</property>
+    <property name="acs-oauth-secret-development" type="string">s9ayZ1amBp3oKyMe2w3vTyikf7C7xHca</property>
+    <property name="acs-oauth-key-development" type="string">6uwWzA86V6kFp93mQLDbjGsSWy06xcxz</property>
+    <property name="acs-api-key-development" type="string">eGg37n6SLiSjrlGBhhbzEYGL3wP9Wiuh</property>
+    <id>com.olivalabs.piglet</id>
+    <name>piglet</name>
+    <version>0.1</version>
+    <publisher>John Oliva</publisher>
+    <url>http://olivalabs.com</url>
+    <description>Application to catalog and rate any physical thing the user comes in contact with.</description>
+    <copyright>2013 by John Oliva</copyright>
+    <icon>appicon.png</icon>
+    <persistent-wifi>false</persistent-wifi>
+    <prerendered-icon>false</prerendered-icon>
+    <statusbar-style>default</statusbar-style>
+    <statusbar-hidden>false</statusbar-hidden>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>47f5a2d3-6009-4a55-904f-8601850fbb62</guid>
+    <property name="ti.ui.defaultunit" type="string">system</property>
+    <iphone>
+        <orientations device="iphone">
+            <orientation>Ti.UI.PORTRAIT</orientation>
+        </orientations>
+        <orientations device="ipad">
+            <orientation>Ti.UI.PORTRAIT</orientation>
+            <orientation>Ti.UI.UPSIDE_PORTRAIT</orientation>
+            <orientation>Ti.UI.LANDSCAPE_LEFT</orientation>
+            <orientation>Ti.UI.LANDSCAPE_RIGHT</orientation>
+        </orientations>
+    </iphone>
+    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <mobileweb>
+        <precache/>
+        <splash>
+            <enabled>true</enabled>
+            <inline-css-images>true</inline-css-images>
+        </splash>
+        <theme>default</theme>
+    </mobileweb>
+    <modules>
+        <module platform="commonjs">ti.cloud</module>
+    </modules>
+    <deployment-targets>
+        <target device="android">true</target>
+        <target device="blackberry">false</target>
+        <target device="ipad">true</target>
+        <target device="iphone">true</target>
+        <target device="mobileweb">false</target>
+        <target device="tizen">false</target>
+    </deployment-targets>
+    <sdk-version>3.1.1.GA</sdk-version>
+    <plugins>
+        <plugin version="1.0">ti.alloy</plugin>
+    </plugins>
+</ti:app>
