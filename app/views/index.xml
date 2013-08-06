@@ -1,5 +1,21 @@
 <Alloy>
 	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, World</Label>
+ 		<View top=0 height="15%">
+			<Label id="app_name" height=Ti.UI.FILL>Piglet</Label>
+		</View>
+		<View id="primary" top="15%" layout="vertical" borderWidth=1>
+			<View height="50%" borderWidth=1>
+				<View layout="vertical" height=Ti.UI.SIZE>
+					<Label>Piglet</Label>
+					<Label>Oinker</Label>
+				</View>
+			</View>
+			<View height="50%">
+				<View layout="vertical" height=Ti.UI.SIZE>
+					<Label>Piglet</Label>
+					<Label>Oinker</Label>
+				</View>
+			</View>
+		</View>
 	</Window>
 </Alloy>
