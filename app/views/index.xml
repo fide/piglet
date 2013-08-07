@@ -4,13 +4,13 @@
 			<Label id="app_name" height=Ti.UI.FILL>Piglet</Label>
 		</View>
 		<View id="primary" top="15%" layout="vertical" borderWidth=1>
-			<View height="50%" borderWidth=1>
+			<View id="login" height="50%" width="50%" borderWidth=1>
 				<View layout="vertical" height=Ti.UI.SIZE>
 					<Label>Piglet</Label>
 					<Label>Oinker</Label>
 				</View>
 			</View>
-			<View height="50%">
+			<View id="signup" height="50%" width="50%" borderWidth=1>
 				<View layout="vertical" height=Ti.UI.SIZE>
 					<Label>Piglet</Label>
 					<Label>Oinker</Label>
