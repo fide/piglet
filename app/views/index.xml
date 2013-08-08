@@ -4,13 +4,14 @@
 			<Label id="app_name" height=Ti.UI.FILL>Piglet</Label>
 		</View>
 		<View id="primary" top="15%" layout="vertical" borderWidth=1 borderColor='black'>
-			<View id="login" left=0 top=0 borderWidth=1 borderColor='black'>
+			<View id="loginContainer" left=0 top=0 borderWidth=1 borderColor='black'>
 				<View layout="vertical" height=Ti.UI.SIZE>
-					<Label>Piglet</Label>
-					<Label>Oinker</Label>
+					<TextField id="username" hintText="Username"/>
+					<TextField id="password" hintText="Password" passwordMask=true top="3dp"/>
+					<Button id="login" title="Login" top="10dp"/>
 				</View>
 			</View>
-			<View id="signup" right=0 bottom=0 borderWidth=1 borderColor='black'>
+			<View id="signupContainer" right=0 bottom=0 borderWidth=1 borderColor='black'>
 				<View layout="vertical" height=Ti.UI.SIZE>
 					<Label>Piglet</Label>
 					<Label>Oinker</Label>
