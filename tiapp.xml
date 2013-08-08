@@ -22,10 +22,13 @@
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
     <guid>47f5a2d3-6009-4a55-904f-8601850fbb62</guid>
-    <property name="ti.ui.defaultunit" type="string">dp</property>
+    <property name="ti.ui.defaultunit" type="string">dip</property>
     <iphone>
         <orientations device="iphone">
             <orientation>Ti.UI.PORTRAIT</orientation>
+            <orientation>Ti.UI.UPSIDE_PORTRAIT</orientation>
+            <orientation>Ti.UI.LANDSCAPE_LEFT</orientation>
+            <orientation>Ti.UI.LANDSCAPE_RIGHT</orientation>
         </orientations>
         <orientations device="ipad">
             <orientation>Ti.UI.PORTRAIT</orientation>
