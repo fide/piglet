@@ -1,14 +1,25 @@
 ".container": {
 	backgroundColor:"white"
 },
-"Label": {
+"Label[platform=android]": {
 	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE,
     font: {
-        fontFamily:'monospace',
+        fontFamily:'Helvetica',
         fontSize: '24dp',
         fontStyle: 'italic',
         fontWeight: 'bold'
     },
  	color: "#000"
-} 
+},
+"Label[platform=ios]": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+    font: {
+        fontFamily:'Helvetica',
+        fontSize: '24dp',
+        fontStyle: 'normal',
+        fontWeight: 'bold'
+    },
+ 	color: "#000"
+}
