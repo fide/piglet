@@ -5,10 +5,9 @@
 	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE,
     font: {
-        fontFamily:'Helvetica',
         fontSize: '24dp',
-        fontStyle: 'italic',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontStyle: 'italic'
     },
  	color: "#000"
 },
@@ -16,21 +15,31 @@
 	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE,
     font: {
-        fontFamily:'Helvetica',
         fontSize: '24dp',
-        fontStyle: 'normal',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontStyle: 'normal'
     },
  	color: "#000"
 },
 "TextField": {
 	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
 	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 	color: '#336699',
 	width: "200dp",
-	height: "35dp"
+	height: "40dp"
 },
 "Button": {
 	height: "35dp",
-	width: "100dp"
+	width: "200dp"
+},
+"#signup_text": {
+    font: {
+        fontSize: '12dp',
+        fontWeight: 'normal'
+    }
+},
+".buttonOK": {
+	color: 'white',
+	backgroundColor: '#33A033'
 }

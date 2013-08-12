@@ -6,15 +6,18 @@
 		<View id="primary" top="15%" layout="vertical" borderWidth=1 borderColor='black'>
 			<View id="loginContainer" left=0 top=0 borderWidth=1 borderColor='black'>
 				<View layout="vertical" height=Ti.UI.SIZE>
-					<TextField id="username" hintText="Username"/>
-					<TextField id="password" hintText="Password" passwordMask=true top="3dp"/>
-					<Button id="login" title="Login" top="10dp"/>
+					<TextField id="user_login" hintText="Username"/>
+					<TextField id="pwd_login" hintText="Password" passwordMask=true top="5dp"/>
+					<Button class="buttonOK" id="login" title="Log in" top="10dp"/>
 				</View>
 			</View>
 			<View id="signupContainer" right=0 bottom=0 borderWidth=1 borderColor='black'>
 				<View layout="vertical" height=Ti.UI.SIZE>
-					<Label>Piglet</Label>
-					<Label>Oinker</Label>
+					<Label id='signup_text'>Don't have an account yet?</Label>
+					<TextField id="user_signup" hintText="Username" top="3dp"/>
+					<TextField id="pwd_signup" hintText="Password" passwordMask=true top="5dp"/>
+					<TextField id="pwd_signup2" hintText="Password Again" passwordMask=true top="1dp"/>
+					<Button class="buttonOK" id="signup" title="Sign Up" top="10dp"/>
 				</View>
 			</View>
 		</View>
