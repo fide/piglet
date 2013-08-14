@@ -28,9 +28,12 @@
 	width: "200dp",
 	height: "40dp"
 },
-"Button": {
-	height: "35dp",
-	width: "200dp"
+"#tapper": {
+	icon:"icon-user",
+	title:"Log In",
+	style:"bs-success",
+	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
+	height: "35dp"
 },
 "#signupText": {
     font: {
@@ -44,8 +47,4 @@
         fontWeight: 'normal'
     },
     color: 'blue'
-},
-".buttonOK[platform=android]": {
-	color: 'white',
-	backgroundColor: '#33A033'
 }
