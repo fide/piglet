@@ -1,5 +1,5 @@
 ".container": {
-	backgroundColor:"white"
+	backgroundImage: '/images/grain.png'
 },
 "Label[platform=android]": {
 	width: Ti.UI.SIZE,
@@ -23,7 +23,6 @@
 },
 "TextField": {
 	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
-	verticalAlign: Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER,
 	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 	color: '#336699',
 	width: "200dp",
@@ -33,13 +32,20 @@
 	height: "35dp",
 	width: "200dp"
 },
-"#signup_text": {
+"#signupText": {
     font: {
         fontSize: '12dp',
         fontWeight: 'normal'
     }
 },
-".buttonOK": {
+"#labelAction": {
+    font: {
+        fontSize: '14dp',
+        fontWeight: 'normal'
+    },
+    color: 'blue'
+},
+".buttonOK[platform=android]": {
 	color: 'white',
 	backgroundColor: '#33A033'
 }

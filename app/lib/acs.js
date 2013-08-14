@@ -7,7 +7,6 @@ var currentUser = null;
 var loggedIn = false;
 
 var Cloud = require('ti.cloud');
-// make sure you added your ACS keys to the tiapp.xml file!
 
 exports.isLoggedIn = function() {
 	return loggedIn;
@@ -15,13 +14,13 @@ exports.isLoggedIn = function() {
 
 exports.login = function(username, password, callback) {
 	/*
-	 * Write a function that will use the ACS Users API to log in a user.
-	 *   - upon successful login, set currentUser equal to the user object returned by ACS
-	 *   - and set loggedIn=true. Then, call the callback function, passing the loggedIn variable
-	 *   - if login fails, write the error message to the console, set loggedIn=false and currentUser=null
-	 *   - then call the callback function passing the loggedIn variable
+	 * Uses the ACS Users API to log in a user.
+	 *   - upon successful login, sets currentUser equal to the user object returned by ACS
+	 *   - and sets loggedIn=true. Then, calls the callback function, passing the loggedIn variable
+	 *   - if login fails, writes the error message to the console, sets loggedIn=false and currentUser=null
+	 *   - then calls the callback function passing the loggedIn variable
 	 */
-
+console.log(username, password)
 	Cloud.Users.login({
 	    login: username,
 	    password: password
@@ -41,8 +40,8 @@ exports.login = function(username, password, callback) {
 
 exports.logout = function() {
 	/*
-	 * Write a function that will use the ACS Users API to log out the current user
-	 *   - on success, set currentUser=null and loggedIn=false
+	 * Uses the ACS Users API to log out the current user
+	 *   - on success, sets currentUser=null and loggedIn=false
 	 */
 	
 	Cloud.Users.logout(function (e) {
@@ -57,11 +56,11 @@ exports.logout = function() {
 
 exports.createUser = function(username, password, callback) {
 	/*
-	 * Write a function that will use the ACS Users API to create a user with the given name & password
-	 *   - on success, set currentUser equal to the user object returned by ACS and set
-	 *   - loggedIn=true, then call the callback function passing the current user.
-	 *   - on failure, log a message to the console, set loggedIn to false, current user to null
-	 *   - and call the callback function, passing false
+	 * Uses the ACS Users API to create a user with the given name & password
+	 *   - on success, sets currentUser equal to the user object returned by ACS and set
+	 *   - loggedIn=true, then calls the callback function passing the current user.
+	 *   - on failure, logs a message to the console, sets loggedIn to false, current user to null
+	 *   - and calls the callback function, passing false
 	 */
 
 	Cloud.Users.create({
@@ -82,13 +81,14 @@ exports.createUser = function(username, password, callback) {
 	});
 };
 
+/*
 exports.brag = function(message, callback) {
 	/*
 	 * Write a function that will use the ACS Statuses API to post a message for the logged in user
 	 *   - pass a message, no other params are needed
 	 *   - on success, call the callback function passing true
 	 *   - on failure, log the error to the console, call callback() passing false
-	*/
+	*
 	
 	Cloud.Statuses.create({
 	    message: message
@@ -107,7 +107,7 @@ exports.getBragList = function(callback) {
 	 * Write a function that will use the ACS Statuses API to retrieve a list of messages for the logged in user
 	 *   - on success, call the callback function, passing the array of status messages returned by ACS
 	 *   - on failure, log the error and call callback() passing false
-	*/
+	*
 	
 	Cloud.Statuses.query({
 	    user_id: currentUser.id,
@@ -121,3 +121,4 @@ exports.getBragList = function(callback) {
 	    }
 	});
 };
+*/
