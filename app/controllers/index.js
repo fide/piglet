@@ -8,42 +8,6 @@ function do_click(e) {
     alert(this.text);
 }
 
-/*
-// Event handler for orientation changes to re-orient primary container view
-Ti.Gesture.addEventListener('orientationchange', function (ev) {
-    if (Ti.Gesture.isLandscape(ev.orientation)) {
-      // Update your UI for landscape orientation
-    	$.primary.layout="horizontal";
-    	$.fragment1.height="100%";
-    	$.fragment1.width="50%";
-//    	$.fragment2.height="100%";
-//    	$.fragment2.width="50%";
-    } else {
-      // Update your UI for portrait orientation
-    	$.primary.layout="vertical";
-    	$.fragment1.height="50%";
-    	$.fragment1.width="100%";
-//    	$.fragment2.height="50%";
-//    	$.fragment2.width="100%";
-    }
-  });
-
-// Initialize layout based on orientation
-if (Ti.Gesture.isPortrait() === true) {
-	$.primary.layout="vertical";
-	$.fragment1.height="50%";
-	$.fragment1.width="100%";
-//	$.fragment2.height="50%";
-//	$.fragment2.width="100%";
-} else {
-	$.primary.layout="horizontal";
-	$.fragment1.height="100%";
-	$.fragment1.width="50%";
-//	$.fragment2.height="100%";
-//	$.fragment2.width="50%";
-}
-*/
-
 function callback() {
 	if(acs.isLoggedIn() === true) {
 		alert ('Success');

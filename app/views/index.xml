@@ -6,8 +6,7 @@
 				<TextField id="username" top="20dp" hintText="Username"/>
 				<TextField id="password" hintText="Password" passwordMask=true top="3dp"/>
 				<TextField id="confirm" hintText="Password Confirm" passwordMask=true height=0 top="1dp"/>
-				<Widget src="nl.fokkezb.button" id="tapper" top="15dp"/>
-				<!--Button class="buttonOK" id="tapper" title="Log in" top="15dp"/-->
+				<Button id="tapper" top="15dp"></Button>>
 				<Label id='labelAction' height=Ti.UI.SIZE top='15dp'>Create New Account?</Label>
 			</View>
 		</ScrollView>

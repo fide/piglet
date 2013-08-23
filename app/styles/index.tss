@@ -29,10 +29,9 @@
 	height: "40dp"
 },
 "#tapper": {
-	icon:"icon-user",
 	title:"Log In",
-	style:"bs-success",
 	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
+	width: "200dp",
 	height: "35dp"
 },
 "#signupText": {
