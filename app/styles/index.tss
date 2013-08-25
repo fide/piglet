@@ -17,12 +17,37 @@
     font: {
         fontSize: '24dp',
         fontWeight: 'bold',
-        fontStyle: 'normal'
+        fontStyle: 'italic'
     },
  	color: "#000"
 },
+"Button[platform=ios]": {
+   	backgroundImage:'btn_default_normal_holo_light.png',
+	backgroundFocusedImage:'btn_default_focused_holo_light.png',
+	backgroundSelectedImage:'btn_default_pressed_holo_light.png',
+	backgroundDisabledImage:'btn_default_disabled_holo_light.png',
+    font: {
+        fontSize: '14dp',
+        fontWeight: 'normal',
+        fontStyle: 'normal'
+    },
+    color: 'black'
+},
+"Button[platform=android]": {
+   	backgroundImage:'/images/btn_default_normal_holo_light.9.png',
+	backgroundFocusedImage:'/images/btn_default_focused_holo_light.9.png',
+	backgroundSelectedImage:'/images/btn_default_pressed_holo_light.9.png',
+	backgroundDisabledImage:'/images/btn_default_disabled_holo_light.9.png',
+    font: {
+        fontSize: '14dp',
+        fontWeight: 'normal',
+        fontStyle: 'normal'
+    },
+    color: 'black'
+},
 "TextField": {
 	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	//borderRadius: '40',
 	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 	color: '#336699',
 	width: "200dp",
