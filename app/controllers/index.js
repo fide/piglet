@@ -10,11 +10,15 @@ function do_click(e) {
 
 function callback() {
 	if(acs.isLoggedIn() === true) {
-		alert ('Success');
+alert ('Success');
 		$.tapper.enabled = true;
 		var win = Alloy.createController('mapview').getView();
-		win.open();
-		this.close();
+		if (win) {
+			win.open();
+			$.index.close();			
+		} else {
+alert ('Failure creating window');
+		}
 	} else {
 		alert('Oopsie, something went wrong.');
 		$.tapper.enabled = true;
