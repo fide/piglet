@@ -1,37 +1,53 @@
 var acs = require('acs');
 
 var entryState = 'login';
-
 const textHeight = '40dp';
 
-function do_click(e) {
-    alert(this.text);
+Ti.App.addEventListener('got_user', function(user) {
+	Alloy.Globals.currentUser = user;
+	launchMap();
+});
+
+Ti.App.addEventListener('need_user', function() {
+	$.viewLogin.visible = true;
+});
+
+function launchMap() {
+	var win = Alloy.createController('mapview').getView();
+	
+	if (win) {
+		var arg = {};
+		if (OS_ANDROID) {
+			arg.activityEnterAnimation = Ti.Android.R.anim.slide_in_left;
+			arg.activityExitAnimation = Ti.Android.R.anim.slide_out_right;			
+		};
+		win.open(arg);
+		$.index.close();
+	}
 }
 
-function callback() {
-	if(acs.isLoggedIn() === true) {
-alert ('Success');
-		$.tapper.enabled = true;
-		var win = Alloy.createController('mapview').getView();
-		if (win) {
-			win.open();
-			$.index.close();			
-		} else {
-alert ('Failure creating window');
-		}
+function cb(e) {
+	if (e.success === true) {
+		Alloy.Globals.currentUser = e.user;
+		launchMap();
 	} else {
-		alert('Oopsie, something went wrong.');
 		$.tapper.enabled = true;
 	}
 }
 
 $.tapper.addEventListener('click', function() {
 	$.tapper.enabled = false;
+
+	// hide keyboard
+	$.username.blur();
+	$.password.blur();
+	$.confirm.blur();
 	
 	if (entryState === 'login') {
-		acs.login($.username.value, $.password.value, callback);		
+		debugger;
+		acs.loginUser($.username.value, $.password.value, cb);		
 	} else {
-		acs.createUser($.username.value, $.password.value, callback);
+		acs.createUser($.username.value, $.password.value, cb);
 	}
 });
 
@@ -49,3 +65,6 @@ $.labelAction.addEventListener('click', function() {
 });
 
 $.index.open();
+
+acs.restoreSession();	// restore session if available, otherwise starts login procedure
+

@@ -17,7 +17,7 @@
     font: {
         fontSize: '24dp',
         fontWeight: 'bold',
-        fontStyle: 'italic'
+        fontStyle: 'normal'
     },
  	color: "#000"
 },
@@ -46,6 +46,7 @@
     color: 'black'
 },
 "TextField": {
+	autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE,
 	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
 	color: '#336699',

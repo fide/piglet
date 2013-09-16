@@ -1,5 +1,6 @@
 <Alloy>
-	<Window>
-		<WebView id="web"/>
+	<Window backgroundColor='white'>
+		<Label id='label' text="MAP" />
+		<!--WebView id="web"/-->
 	</Window>
 </Alloy>

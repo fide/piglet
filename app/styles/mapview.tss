@@ -1,4 +1,6 @@
-
-".container" : {
-  
+"#label": {
+    font: {
+        fontSize: '24dp',
+        fontWeight: 'bold'
+    }
 }
