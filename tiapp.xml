@@ -22,6 +22,7 @@
     <analytics>true</analytics>
     <guid>47f5a2d3-6009-4a55-904f-8601850fbb62</guid>
     <property name="ti.ui.defaultunit" type="string">dip</property>
+    <property name="ti.android.threadstacksize" type="int">32768</property>
     <iphone>
         <orientations device="iphone">
             <orientation>Ti.UI.PORTRAIT</orientation>
@@ -36,7 +37,29 @@
             <orientation>Ti.UI.LANDSCAPE_RIGHT</orientation>
         </orientations>
     </iphone>
-    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+        <manifest>
+            <!-- Allows the API to download data from Google Map servers -->
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <!-- Allows the API to cache data -->
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+            <!-- Use GPS for device location -->
+            <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+            <!-- Use Wi-Fi or mobile connection for device location -->
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+            <!-- Allows the API to access Google web-based services -->
+            <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+            <!-- Specify OpenGL ES 2.0 as a requirement -->
+            <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+            <!-- Replace <com.domain.appid> with your application ID -->
+            <uses-permission android:name="com.olivalabs.piglet.permission.MAPS_RECEIVE"/>
+            <permission android:name="com.olivalabs.piglet.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+            <application>
+                <!-- Replace "PASTE YOUR GOOGLE MAPS API KEY HERE" with the Google API key you obtained -->
+                <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBaxD-6reyV_7T6uuaEFNu9_E8rGYetNs4"/>
+            </application>
+        </manifest>
+    </android>
     <mobileweb>
         <precache/>
         <splash>

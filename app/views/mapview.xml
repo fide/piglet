@@ -1,6 +1,20 @@
 <Alloy>
-	<Window backgroundColor='white'>
-		<Label id='label' text="MAP" />
-		<!--WebView id="web"/-->
+	<Window class='container' id="mapWindow">
+		<View platform="ios" layout="vertical">
+			<!-- Tags for iOS -->
+			<Toolbar id="mapToolbar" ns="Ti.UI.iOS">
+				<Items>
+					<Button id="btnLogout">
+					<FlexSpace/>
+					<Button id="btnAdd">
+				</Items>
+			</Toolbar>
+			<View id="mapView" ns="Ti.Map" platform="ios"/>
+		</View>
+		<View platform="android">
+			<!-- Tags for Android -->
+			<!--Module id="mapView" module="ti.map" method="createView" platform="android"/-->
+			<View id="mapView" ns="Alloy.Globals.Map" method="createView" platform="android"/>
+		</View>
 	</Window>
 </Alloy>

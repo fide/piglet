@@ -4,6 +4,7 @@
 
 var loggedIn = false;
 
+var Alloy = require('alloy');
 var Cloud = require('ti.cloud');
 //Cloud.debug = true;
 
@@ -98,6 +99,30 @@ exports.loginUser = function(username, password, callback) {
 	        
 	        currentUser = null;
 	        loggedIn = false;
+	        
+	        rtnVal.error = JSON.stringify(e);
+	        callback(rtnVal);
+	    }
+	});
+};
+
+exports.logoutUser = function(callback) {
+	Cloud.Users.logout(function (e) {
+		rtnVal = {success:false, error:''};
+		
+	    if (e.success) {
+			Ti.API.debug('logout success');
+					
+			loggedIn = false;
+			Alloy.Globals.currentUser = null;
+			
+			// remove sessionID
+			Ti.App.Properties.removeProperty('sessionid');
+
+			rtnVal.success = true;
+			callback(rtnVal);
+	    } else {
+	        Ti.API.error('logout error: ' +  ((e.error && e.message) || JSON.stringify(e)));
 	        
 	        rtnVal.error = JSON.stringify(e);
 	        callback(rtnVal);

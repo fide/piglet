@@ -1,6 +1,29 @@
-"#label": {
-    font: {
-        fontSize: '24dp',
-        fontWeight: 'bold'
-    }
+"#mapWindow":{
+	title: 'Piglet Map',
+	barColor: '#6d0a0c'
+},
+"#mapView[platform=ios]": {
+	mapType: Ti.Map.STANDARD_TYPE,
+	animate:true,
+	regionFit:true,
+	annotations:[],
+	userLocation:true
+},
+"#mapView[platform=android]": {
+	mapType: Alloy.Globals.Map.NORMAL_TYPE,
+	opacity:1,
+	animate:false,
+	regionFit:true,
+	annotations:[],
+	userLocation:true
+},
+"#btnLogout": {
+	style: Ti.UI.iPhone.SystemButtonStyle.BORDERED,
+	title:"Log Out"
+},
+"#btnAdd": {
+	//systemButton:Ti.UI.iPhone.SystemButton.ADD
+	style: Ti.UI.iPhone.SystemButtonStyle.BORDERED,
+	title:"Add"
 }
+
