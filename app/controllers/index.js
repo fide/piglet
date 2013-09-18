@@ -44,7 +44,6 @@ $.tapper.addEventListener('click', function() {
 	$.confirm.blur();
 	
 	if (entryState === 'login') {
-		debugger;
 		acs.loginUser($.username.value, $.password.value, cb);		
 	} else {
 		acs.createUser($.username.value, $.password.value, cb);

@@ -12,3 +12,6 @@
 
 Alloy.Globals.currentUser = null;
 
+if (OS_ANDROID) {
+	Alloy.Globals.Map = require('ti.map');
+}

@@ -1,5 +1,14 @@
-"#mapWindow":{
-	title: 'Piglet Map',
+"#lblTitle[platform=ios]": {
+	color: 'white',
+	font: {
+		fontSize: '20dp',
+		fontFamily: 'Helvetica',
+		fontStyle: 'normal',
+		fontWeight: 'bold'
+	}
+},
+"#mapWindow[platform=ios]":{
+	title: 'My Map',
 	barColor: '#6d0a0c'
 },
 "#mapView[platform=ios]": {
@@ -17,13 +26,16 @@
 	annotations:[],
 	userLocation:true
 },
-"#btnLogout": {
+"#btnLogout[platform=ios]": {
 	style: Ti.UI.iPhone.SystemButtonStyle.BORDERED,
 	title:"Log Out"
 },
-"#btnAdd": {
+"#btnAdd[platform=ios]": {
 	//systemButton:Ti.UI.iPhone.SystemButton.ADD
 	style: Ti.UI.iPhone.SystemButtonStyle.BORDERED,
 	title:"Add"
+},
+"#mapToolbar[platform=android]": {
+	backgroundColor: '#4E7FB4'
 }
 

@@ -6,15 +6,18 @@
 				<Items>
 					<Button id="btnLogout">
 					<FlexSpace/>
+					<Label id="lblTitle" text="Piglet" />
+					<FlexSpace/>
 					<Button id="btnAdd">
 				</Items>
 			</Toolbar>
 			<View id="mapView" ns="Ti.Map" platform="ios"/>
 		</View>
-		<View platform="android">
+
+		<View platform="android" layout="vertical">
 			<!-- Tags for Android -->
-			<!--Module id="mapView" module="ti.map" method="createView" platform="android"/-->
-			<View id="mapView" ns="Alloy.Globals.Map" method="createView" platform="android"/>
+			<View id="mapToolbar" height="80dp" width=Ti.UI.FILL/>
+			<View id="mapView" ns="Alloy.Globals.Map" method="createView" />
 		</View>
 	</Window>
 </Alloy>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><ti:app xmlns:ti="http://ti.appcelerator.org">
-    <property name="acs-oauth-secret-production" type="string">rTWs9cHxcAtjiAjqSi91YThgLhMuQCfs</property>
-    <property name="acs-oauth-key-production" type="string">MQHiMjmpnUBdrVo9JL7wX4p0Mm1jLGr3</property>
-    <property name="acs-api-key-production" type="string">rpKqynpLmHAvwb7PcFHGncngHdKIuklF</property>
-    <property name="acs-oauth-secret-development" type="string">s9ayZ1amBp3oKyMe2w3vTyikf7C7xHca</property>
-    <property name="acs-oauth-key-development" type="string">6uwWzA86V6kFp93mQLDbjGsSWy06xcxz</property>
-    <property name="acs-api-key-development" type="string">eGg37n6SLiSjrlGBhhbzEYGL3wP9Wiuh</property>
+    <property name="acs-oauth-secret-development" type="string">f7K9JK2vNULzgEtXZIyCMbUioH8INREZ</property>
+    <property name="acs-oauth-key-development" type="string">TOwX3uwoIp6fmxMTgdW9OPBAkOfgc2aE</property>
+    <property name="acs-api-key-development" type="string">LTblo6XFpmVCj9gO0dulsbQJlXOChYXd</property>
+    <property name="acs-oauth-secret-production" type="string">bezBF16TA7rvrmmh6rzScBrzigh2kRYH</property>
+    <property name="acs-oauth-key-production" type="string">rUmjrAjNonZow0FBuf0EPeI8g8biP047</property>
+    <property name="acs-api-key-production" type="string">kfl56MXImDrf7eRBXuHbWyvSu3IVGnYy</property>
     <id>com.olivalabs.piglet</id>
     <name>piglet</name>
     <version>0.1</version>
@@ -19,8 +19,8 @@
     <statusbar-hidden>false</statusbar-hidden>
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
-    <analytics>true</analytics>
-    <guid>47f5a2d3-6009-4a55-904f-8601850fbb62</guid>
+    <analytics>false</analytics>
+    <guid>e032ca84-4664-48a4-b3b9-87c045a533c7</guid>
     <property name="ti.ui.defaultunit" type="string">dip</property>
     <property name="ti.android.threadstacksize" type="int">32768</property>
     <iphone>
@@ -56,7 +56,7 @@
             <permission android:name="com.olivalabs.piglet.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
             <application>
                 <!-- Replace "PASTE YOUR GOOGLE MAPS API KEY HERE" with the Google API key you obtained -->
-                <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBaxD-6reyV_7T6uuaEFNu9_E8rGYetNs4"/>
+                <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBUqD35phwI-AXFXF6E1uT0GPI3UHvnWLA"/>
             </application>
         </manifest>
     </android>
