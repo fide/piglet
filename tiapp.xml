@@ -38,6 +38,8 @@
         </orientations>
     </iphone>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
+    	<!-- Android 2.3.3 (API 10) -->
+		<tool-api-level>10</tool-api-level>
         <manifest>
             <!-- Allows the API to download data from Google Map servers -->
             <uses-permission android:name="android.permission.INTERNET"/>

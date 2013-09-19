@@ -84,3 +84,27 @@ if (OS_IOS) {
 	});
 }
 
+function launchDetail() {
+	var args ={};
+	args.parent = $.mapWindow;
+	
+	var win = Alloy.createController('detailview', args).getView();
+	
+	if (win) {
+		var options = {};
+		
+		if (OS_ANDROID) {
+			options.activityEnterAnimation = Ti.Android.R.anim.slide_in_left;
+			options.activityExitAnimation = Ti.Android.R.anim.slide_out_right;			
+		};
+		
+		win.open(options);
+		//$.mapWindow.close();
+	}
+}
+
+if (OS_IOS) {
+	$.btnAdd.addEventListener('click', function(e) {
+		launchDetail();
+	});
+}

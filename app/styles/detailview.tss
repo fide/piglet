@@ -1,4 +1,27 @@
-
-".container" : {
-  
+"#lblTitle[platform=ios]": {
+	color: 'white',
+	font: {
+		fontSize: '20dp',
+		fontFamily: 'Helvetica',
+		fontStyle: 'normal',
+		fontWeight: 'bold'
+	}
+},
+"#detailWindow[platform=ios]":{
+	title: 'My Map',
+	backgroundColor: 'white',
+	barColor: '#6d0a0c'
+},
+"#btnBack[platform=ios]": {
+	style: Ti.UI.iPhone.SystemButtonStyle.BORDERED,
+	title:"Back"
+},
+"#btnDelete[platform=ios]": {
+	//systemButton:Ti.UI.iPhone.SystemButton.ADD
+	style: Ti.UI.iPhone.SystemButtonStyle.BORDERED,
+	title:"Delete"
+},
+"#detailToolbar[platform=android]": {
+	backgroundColor: '#4E7FB4'
 }
+

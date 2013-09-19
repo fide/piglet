@@ -1,4 +1,21 @@
 <Alloy>
-	<View class="container">
-	</View>
+	<Window class='container' id="detailWindow">
+		<View platform="ios" layout="vertical">
+			<!-- Tags for iOS -->
+			<Toolbar id="detailToolbar" ns="Ti.UI.iOS">
+				<Items>
+					<Button id="btnBack">
+					<FlexSpace/>
+					<Label id="lblTitle" text="Piglet" />
+					<FlexSpace/>
+					<Button id="btnDelete">
+				</Items>
+			</Toolbar>
+		</View>
+
+		<View platform="android" layout="vertical">
+			<!-- Tags for Android -->
+			<View id="detailToolbar" height="60dp" width=Ti.UI.FILL/>
+		</View>
+	</Window>
 </Alloy>
