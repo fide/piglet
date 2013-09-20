@@ -4,11 +4,13 @@ var entryState = 'login';
 const textHeight = '40dp';
 
 Ti.App.addEventListener('got_user', function(user) {
+	Ti.API.debug('Handling app event: got_user');
 	Alloy.Globals.currentUser = user;
 	launchMap();
 });
 
 Ti.App.addEventListener('need_user', function() {
+	Ti.API.debug('Handling app event: need_user');
 	$.viewLogin.visible = true;
 });
 

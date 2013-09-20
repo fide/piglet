@@ -9,12 +9,13 @@
 },
 "#mapWindow[platform=ios]":{
 	title: 'My Map',
+	top: Alloy.CFG.winTopOffset,
 	barColor: '#6d0a0c'
 },
 "#mapView[platform=ios]": {
 	mapType: Ti.Map.STANDARD_TYPE,
 	animate:true,
-	regionFit:true,
+	regionFit:false,
 	annotations:[],
 	userLocation:true
 },

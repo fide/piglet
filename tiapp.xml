@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?><ti:app xmlns:ti="http://ti.appcelerator.org">
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
     <property name="acs-oauth-secret-development" type="string">f7K9JK2vNULzgEtXZIyCMbUioH8INREZ</property>
     <property name="acs-oauth-key-development" type="string">TOwX3uwoIp6fmxMTgdW9OPBAkOfgc2aE</property>
     <property name="acs-api-key-development" type="string">LTblo6XFpmVCj9gO0dulsbQJlXOChYXd</property>
@@ -38,8 +39,8 @@
         </orientations>
     </iphone>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-    	<!-- Android 2.3.3 (API 10) -->
-		<tool-api-level>10</tool-api-level>
+        <!-- Android 2.3.3 (API 10) -->
+        <tool-api-level>10</tool-api-level>
         <manifest>
             <!-- Allows the API to download data from Google Map servers -->
             <uses-permission android:name="android.permission.INTERNET"/>
@@ -55,10 +56,12 @@
             <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
             <!-- Replace <com.domain.appid> with your application ID -->
             <uses-permission android:name="com.olivalabs.piglet.permission.MAPS_RECEIVE"/>
-            <permission android:name="com.olivalabs.piglet.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+            <permission
+                android:name="com.olivalabs.piglet.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
             <application>
                 <!-- Replace "PASTE YOUR GOOGLE MAPS API KEY HERE" with the Google API key you obtained -->
-                <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBUqD35phwI-AXFXF6E1uT0GPI3UHvnWLA"/>
+                <meta-data
+                    android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBUqD35phwI-AXFXF6E1uT0GPI3UHvnWLA"/>
             </application>
         </manifest>
     </android>
@@ -82,7 +85,7 @@
         <target device="mobileweb">false</target>
         <target device="tizen">false</target>
     </deployment-targets>
-    <sdk-version>3.1.2.GA</sdk-version>
+    <sdk-version>3.1.3.GA</sdk-version>
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>

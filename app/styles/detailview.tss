@@ -9,7 +9,8 @@
 },
 "#detailWindow[platform=ios]":{
 	title: 'My Map',
-	backgroundColor: 'white',
+	top: Alloy.CFG.winTopOffset,
+	backgroundColor: '#dcdcdc',
 	barColor: '#6d0a0c'
 },
 "#btnBack[platform=ios]": {

@@ -1,6 +1,3 @@
-".container": {
-	backgroundImage: '/images/grain.png'
-},
 "Label[platform=android]": {
 	width: Ti.UI.SIZE,
 	height: Ti.UI.SIZE,

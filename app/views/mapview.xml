@@ -1,5 +1,5 @@
 <Alloy>
-	<Window class='container' id="mapWindow">
+	<Window id="mapWindow">
 		<View platform="ios" layout="vertical">
 			<!-- Tags for iOS -->
 			<Toolbar id="mapToolbar" ns="Ti.UI.iOS">
