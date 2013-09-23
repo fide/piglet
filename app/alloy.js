@@ -10,6 +10,8 @@
 //
 // Alloy.Globals.someGlobalFunction = function(){};
 
+require('ti.newrelic').start("AA0f66422b054587681b263b0338fc22a65db81616");
+
 Alloy.Globals.currentUser = null;
 
 if (OS_ANDROID) {
