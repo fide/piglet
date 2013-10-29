@@ -76,8 +76,6 @@
     <modules>
         <module platform="commonjs">ti.cloud</module>
         <module platform="android">ti.map</module>
-        <module platform="iphone">ti.newrelic</module>
-        <module platform="android">ti.newrelic</module>
     </modules>
     <deployment-targets>
         <target device="android">true</target>

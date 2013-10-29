@@ -16,7 +16,7 @@
 
 		<View platform="android" layout="vertical">
 			<!-- Tags for Android -->
-			<View id="mapToolbar" height="80dp" width=Ti.UI.FILL/>
+			<View id="mapToolbar" height="80dp" width="Ti.UI.FILL"/>
 			<View id="mapView" ns="Alloy.Globals.Map" method="createView" />
 		</View>
 	</Window>

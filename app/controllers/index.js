@@ -35,7 +35,7 @@ function cb(e) {
 	} else {
 		$.tapper.enabled = true;
 	}
-}
+};
 
 $.tapper.addEventListener('click', function() {
 	$.tapper.enabled = false;
@@ -68,4 +68,3 @@ $.labelAction.addEventListener('click', function() {
 $.index.open();
 
 acs.restoreSession();	// restore session if available, otherwise starts login procedure
-

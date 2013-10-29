@@ -15,7 +15,7 @@
 
 		<View platform="android" layout="vertical">
 			<!-- Tags for Android -->
-			<View id="detailToolbar" height="60dp" width=Ti.UI.FILL/>
+			<View id="detailToolbar" height="60dp" width="Ti.UI.FILL"/>
 		</View>
 	</Window>
 </Alloy>
