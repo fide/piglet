@@ -55,10 +55,12 @@ function main () {
 	Kernel.extend(Hub, require('framework/hub/hubMain').baas, true);
 	
 	Kernel.baas.setDebug(true);
+	Kernel.baas.setDebug(true);
 		
 	// Define modules
 	//Kernel.module.define('moduleConsoleLogger', require('framework/module/moduleConsoleLogger').public);
 	Kernel.module.define('moduleEventMonitor', require('framework/module/moduleEventMonitor').public);
+	Kernel.module.define('moduleAppManager', require('framework/module/moduleAppManager').public);
 	Kernel.module.define('moduleLogin', require('framework/module/moduleLogin').public);
 	Kernel.module.define('moduleMapView', require('framework/module/moduleMapView').public);
 	Kernel.module.define('moduleDetailView', require('framework/module/moduleDetailView').public);
@@ -66,12 +68,14 @@ function main () {
 	// Register modules
 	//Kernel.register('mConsoleLogger', 'moduleConsoleLogger');
 	Kernel.register('mEventMonitor', 'moduleEventMonitor');
+	Kernel.register('mAppManager', 'moduleAppManager');
 	Kernel.register('mLogin', 'moduleLogin');
 	Kernel.register('mMapView', 'moduleMapView');
 	Kernel.register('mDetailView', 'moduleDetailView');
 	
 	// start modules
 	Kernel.start('mEventMonitor');
+	Kernel.start('mAppManager');
 	Kernel.start('mLogin');
 }
 
