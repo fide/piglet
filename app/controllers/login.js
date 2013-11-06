@@ -10,11 +10,11 @@ function setDebug(flag) {
 function init() {	
 	vars.debug = true;
 	
-	vars.entryState;
+	vars.entryState = 'login';
 	vars.textHeight = '40dp';
 	
 	Ti.App.addEventListener('got_user', function(user) {
-		$.hub.logDebug('Login: handling app event: got_user');
+		//$.hub.logDebug('Login: handling app event: got_user');
 		Alloy.Globals.currentUser = user;
 		$.hub.broadcast('user-acquired', user);
 		//launchMap();
@@ -56,7 +56,10 @@ function init() {
 };
 
 exports.open = function (arg) {
-	$.hub.sessionRestore();		// restore session if available, otherwise starts login procedure
+	// Restore session if available, otherwise starts login procedure.
+	// This can't go in init() because the controller has not yet been
+	// extended with the framework's hub.
+	$.hub.sessionRestore();
 	
 	$.loginWindow.open(arg);
 }
@@ -88,7 +91,9 @@ function launchMap() {
 function userCallback(resp) {
 	if (resp.success === true) {
 		Alloy.Globals.currentUser = resp.user;
-		launchMap();
+		$.hub.broadcast('user-acquired', user);
+		$.hub.logDebug('foobar');
+		//launchMap();
 	} else {
         alert(JSON.stringify(resp));
 		$.tapper.enabled = true;

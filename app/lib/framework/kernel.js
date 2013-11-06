@@ -23,6 +23,8 @@
 
 /* Converted to CommonJS format. John Oliva, 11/5/13 */
 
+var _ = require('alloy/underscore');
+
 var core, hubs = { }, modules = {}, registered = {},
 	listeners = {},
 	defaultHub = 'main';
@@ -124,8 +126,8 @@ function defineHub(name, Definition) {
 		}
 		
 		// Get the listeners
-		l = listeners[type];
-
+		l = listeners[type];	
+		
 		// Increment the broadcastCount
 		broadcastCount[type] = broadcastCount[type] || 0;
 		broadcastCount[type] += 1;
