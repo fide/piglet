@@ -1,6 +1,5 @@
-/*
-	Library to wrap app-specific functionality around the ACS APIs
-*/
+
+// Library to wrap app-specific functionality around the ACS APIs
 
 var loggedIn = false;
 
