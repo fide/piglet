@@ -1,7 +1,7 @@
 // BaaS kernel extension (CommonJS)
 
 var Alloy = require('Alloy');
-var log = require('./kernelLogging').log;
+var log = require('framework/kernel/kernelLogging').log;
 
 // types supported: 'acs'
 var baasType = 'acs';

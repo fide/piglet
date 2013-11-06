@@ -42,25 +42,25 @@ function main () {
 	//---------------------------------------------------------------------------------------
 	
 	// Create Kernel object and store on Alloy.Globals
-	var Kernel = Alloy.Globals.Kernel = require('../kernel');
+	var Kernel = Alloy.Globals.Kernel = require('framework/kernel');
 
 	// Add Kernel extensions
-	Kernel.extend(Kernel, {log: require('./kernelLogging').log}, true);
-	Kernel.extend(Kernel, {baas: require('./kernelBaaS').baas}, true);
+	Kernel.extend(Kernel, {log: require('framework/kernel/kernelLogging').log}, true);
+	Kernel.extend(Kernel, {baas: require('framework/kernel/kernelBaaS').baas}, true);
 	
 	var Hub = Kernel.hub.get('main');
 
 	// Add Hub extensions
-	Kernel.extend(Hub, require('../hub/hubMain').log, true);
-	Kernel.extend(Hub, require('../hub/hubMain').baas, true);
+	Kernel.extend(Hub, require('framework/hub/hubMain').log, true);
+	Kernel.extend(Hub, require('framework/hub/hubMain').baas, true);
 	
 	Kernel.baas.setDebug(true);
 		
 	// Define modules
-	Kernel.module.define('moduleConsoleLogger', require('../module/moduleConsoleLogger').public);
-	Kernel.module.define('moduleLogin', require('../module/moduleLogin').public);
-	Kernel.module.define('moduleMapView', require('../module/moduleMapView').public);
-	Kernel.module.define('moduleDetailView', require('../module/moduleDetailView').public);
+	Kernel.module.define('moduleConsoleLogger', require('framework/module/moduleConsoleLogger').public);
+	Kernel.module.define('moduleLogin', require('framework/module/moduleLogin').public);
+	Kernel.module.define('moduleMapView', require('framework/module/moduleMapView').public);
+	Kernel.module.define('moduleDetailView', require('framework/module/moduleDetailView').public);
 
 	// Register modules
 	Kernel.register('mConsoleLogger', 'moduleConsoleLogger');
