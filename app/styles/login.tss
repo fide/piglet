@@ -1,0 +1,71 @@
+"Label[platform=android]": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+    font: {
+        fontSize: '24dp',
+        fontWeight: 'bold',
+        fontStyle: 'italic'
+    },
+ 	color: "#000"
+},
+"Label[platform=ios]": {
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+    font: {
+        fontSize: '24dp',
+        fontWeight: 'bold',
+        fontStyle: 'normal'
+    },
+ 	color: "#000"
+},
+"Button[platform=ios]": {
+   	backgroundImage:'btn_default_normal_holo_light.png',
+	backgroundFocusedImage:'btn_default_focused_holo_light.png',
+	backgroundSelectedImage:'btn_default_pressed_holo_light.png',
+	backgroundDisabledImage:'btn_default_disabled_holo_light.png',
+    font: {
+        fontSize: '14dp',
+        fontWeight: 'normal',
+        fontStyle: 'normal'
+    },
+    color: 'black'
+},
+"Button[platform=android]": {
+   	backgroundImage:'/images/btn_default_normal_holo_light.9.png',
+	backgroundFocusedImage:'/images/btn_default_focused_holo_light.9.png',
+	backgroundSelectedImage:'/images/btn_default_pressed_holo_light.9.png',
+	backgroundDisabledImage:'/images/btn_default_disabled_holo_light.9.png',
+    font: {
+        fontSize: '14dp',
+        fontWeight: 'normal',
+        fontStyle: 'normal'
+    },
+    color: 'black'
+},
+"TextField": {
+	autocapitalization: Ti.UI.TEXT_AUTOCAPITALIZATION_NONE,
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+	color: '#336699',
+	width: "200dp",
+	height: "40dp"
+},
+"#tapper": {
+	title:"Log In",
+	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
+	width: "200dp",
+	height: "35dp"
+},
+"#signupText": {
+    font: {
+        fontSize: '12dp',
+        fontWeight: 'normal'
+    }
+},
+"#labelAction": {
+    font: {
+        fontSize: '14dp',
+        fontWeight: 'normal'
+    },
+    color: 'blue'
+}

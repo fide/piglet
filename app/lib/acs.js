@@ -58,13 +58,10 @@ exports.createUser = function(username, password, callback) {
 	        rtnVal.user = currentUser;
 	        callback(rtnVal);
 	    } else {
-	        Ti.API.error('login error:\n' +  ((e.error && e.message) || JSON.stringify(e)));
-	        alert('Login error: ' + ((e.error && e.message) || JSON.stringify(e)))
-	        
 	        currentUser = null;
 	        loggedIn = false;
 	        
-	        rtnVal.error = JSON.stringify(e);
+	        rtnVal.error = e;
 	        callback(rtnVal);
 	    }
 	});
@@ -94,13 +91,10 @@ exports.loginUser = function(username, password, callback) {
 	        rtnVal.user = currentUser;
 	        callback(rtnVal);
 	    } else {
-	        Ti.API.error('login error:\n' +  ((e.error && e.message) || JSON.stringify(e)));
-	        alert('Login error: ' + JSON.stringify(e))
-	        
 	        currentUser = null;
 	        loggedIn = false;
 	        
-	        rtnVal.error = JSON.stringify(e);
+	        rtnVal.error = e;
 	        callback(rtnVal);
 	    }
 	});
@@ -124,132 +118,8 @@ exports.logoutUser = function(callback) {
 	    } else {
 	        Ti.API.error('logout error: ' +  ((e.error && e.message) || JSON.stringify(e)));
 	        
-	        rtnVal.error = JSON.stringify(e);
+	        rtnVal.error = e;
 	        callback(rtnVal);
 	    }
 	});
 };
-
-/*
-// Add saveFugitive() here, accepts a fugitive object, store the 
-// custom object in a class named 'fugitive'
-// check logged in state, Ti.API.info() out a success/failure message
-exports.saveFugitive = function(fugitive, callback) {
-	if (loggedIn === true) {
-		Cloud.Objects.update ({
-		    classname: 'fugitive',
-		    id: fugitive.acs_id,
-		    fields: {
-				'name': fugitive.name,
-				'captured': fugitive.captured,
-				'url': fugitive.url,
-				'capturedLat': fugitive.capturedLat,
-				'capturedLon': fugitive.capturedLon
-		    }
-		}, function (e) {
-		    if (e.success) {
-		        var fugitive = e.fugitive[0];
-		        Ti.API.debug('save fugitive success:\n' +
-			        'id: ' + fugitive.id + '\n' +
-			        'name: ' + fugitive.name + '\n' +
-		            'captured: ' + fugitive.captured + '\n' +
-		            'url: ' + fugitive.url + '\n' +
-		            'capturedLat: ' + fugitive.capturedLat + '\n' +
-		            'capturedLon: ' + fugitive.capturedLon + '\n' +
-		            'created_at: ' + fugitive.created_at
-		        );
-		        
-		        if (callback) callback(true);
-		    } else {
-		        Ti.API.error('save fugitive error: ' + ((e.error && e.message) || JSON.stringify(e)));
-		        alert('Save fugitive error: ' + ((e.error && e.message) || JSON.stringify(e)))
-		        
-		        if (callback) callback(false);
-		    }
-		});
-	} else {
-		Ti.API.debug('updating fugitive - must be logged in');
-		alert ('Must be logged in');	}
-};
-
-exports.createFugitive = function(fugitive, callback) {
-	if (loggedIn === true) {
-		Cloud.Objects.create ({
-		    classname: 'fugitive',
-		    fields: {
-				'name': fugitive.name,
-				'captured': fugitive.captured,
-				'url': fugitive.url,
-				'capturedLat': fugitive.capturedLat,
-				'capturedLon': fugitive.capturedLon
-		    },
-		    user_id: Alloy.Globals.user
-		}, function (e) {
-		    if (e.success) {
-		        var fugitive = e.fugitive[0];
-		        Ti.API.debug('create fugitive success:\n' +
-			        'id: ' + fugitive.id + '\n' +
-			        'name: ' + fugitive.name + '\n' +
-		            'captured: ' + fugitive.captured + '\n' +
-		            'url: ' + fugitive.url + '\n' +
-		            'capturedLat: ' + fugitive.capturedLat + '\n' +
-		            'capturedLon: ' + fugitive.capturedLon + '\n' +
-		            'created_at: ' + fugitive.created_at
-		        );
-		        
-		        if (callback) callback(fugitive);
-		    } else {
-		        Ti.API.error('create fugitive error: ' + ((e.error && e.message) || JSON.stringify(e)));
-		        alert('Create fugitive error: ' + ((e.error && e.message) || JSON.stringify(e)))
-		        
-		        if (callback) callback(false);
-		    }
-		});
-	} else {
-		Ti.API.debug('creating fugitive - must be logged in');
-		alert ('Must be logged in');
-	}
-};
-
-exports.deleteFugitive = function(fugitive, callback) {
-	if (loggedIn === true) {
-		Cloud.Objects.remove ({
-		    classname: 'fugitive',
-		    id: fugitive.acs_id
-		}, function (e) {
-		    if (e.success) {
-		        Ti.API.debug('delete fugitive success');
-		        if (callback) callback(true);
-		    } else {
-		        Ti.API.error('delete fugitive error: ' + ((e.error && e.message) || JSON.stringify(e)));
-		        alert('Delete fugitive error: ' + ((e.error && e.message) || JSON.stringify(e)))
-		        if (callback) callback(false);
-		    }
-		});
-	} else {
-		Ti.API.debug('deleting fugitive - must be logged in');
-		alert ('Must be logged in');
-	}
-};
-
-exports.getFugitives = function(user, callback) {
-	if (loggedIn === true) {
-		Cloud.Objects.query ({
-		    classname: 'fugitive',
-		    where: {user_id: user.id},
-		    order: 'username',
-		    response_json_depth: 1,
-		    limit: 1000
-		}, function (e) {
-		    if (e.success) {
-		        if (callback) callback(e);
-		    } else {
-		        Ti.API.error('get fugitives error: ' + ((e.error && e.message) || JSON.stringify(e)));
-		        if (callback) callback(false);
-		    }
-		});
-	} else {
-		Ti.API.debug('getting fugitives - must be logged in');
-	}
-};
-*/
