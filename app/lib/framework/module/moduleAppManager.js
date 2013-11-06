@@ -3,10 +3,11 @@
 var Alloy = require('Alloy');
 
 vars = {};
+var logPrefix ='AppManager: ';
 
 function setDebug(flag) {
 	vars.debug = flag;
-	this.hub.logDebug('AppManager: debugging ' + ((vars.debug) ? 'enabled' : 'disabled'));
+	this.hub.logDebug(logPrefix + 'debugging ' + ((vars.debug) ? 'enabled' : 'disabled'));
 }
 
 // Required initialization method
@@ -14,8 +15,17 @@ function init () {
 	vars.debug = true;
 	
 	var hub = this.hub;
+		
+	// configure messages to listen for
+	hub.listen('event', function(eventData) {
+		switch (eventData.type) {
+		case 'framework-initialized':
+			hub.logDebug(logPrefix + "handling 'framework-initialized'");
+			break;
+		}
+	});
 	
-	if (vars.debug) hub.logDebug('AppManager: module started');
+	if (vars.debug) hub.logDebug(logPrefix + 'module started');
 }
 
 exports.public = {

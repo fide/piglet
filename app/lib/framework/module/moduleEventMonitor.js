@@ -3,6 +3,7 @@
 // Uses Titanium logging facilities with some consistent prefixes
 
 var Alloy = require('Alloy');
+var logPrefix ='EventMonitor: ';
 
 // Required initialization method
 function init() {
@@ -12,11 +13,11 @@ function init() {
 	hub.listen('event', function(eventData) {
 		// don't display log-* events
 		if (eventData.type.slice(0,4) != 'log-') {
-			hub.logDebug('Event Monitor: ' + JSON.stringify(eventData));
+			hub.logDebug(logPrefix + JSON.stringify(eventData));
 		}
 	});
 	
-	hub.logDebug('EventMonitor: module started');
+	hub.logDebug(logPrefix + 'module started');
 }
 
 exports.public = {

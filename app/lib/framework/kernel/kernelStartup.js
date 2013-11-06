@@ -76,6 +76,8 @@ function main () {
 	// start modules
 	Kernel.start('mEventMonitor');
 	Kernel.start('mAppManager');
+	
+	Hub.broadcast('framework-initialized');
 	Kernel.start('mLogin');
 }
 

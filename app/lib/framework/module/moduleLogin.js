@@ -4,12 +4,13 @@ var Alloy = require('Alloy');
 var _ = require('Alloy/underscore');
 
 vars = {};
+var logPrefix ='Login: ';
 var win;
 var ctl;
 
 function setDebug(flag) {
 	vars.debug = flag;
-	this.hub.logDebug('Login: debugging ' + ((vars.debug) ? 'enabled' : 'disabled'));
+	this.hub.logDebug(logPrefix + 'debugging ' + ((vars.debug) ? 'enabled' : 'disabled'));
 }
 
 // Required initialization method
@@ -20,7 +21,7 @@ function init () {
 	win = ctl.getView();
 	_.extend(ctl, {hub: Alloy.Globals.Kernel.hub.get('main')});
 	
-	if (vars.debug) this.hub.logDebug('Login: module started');
+	if (vars.debug) this.hub.logDebug(logPrefix + 'module started');
 	vars.state = 'initialized';
 	
 	open();

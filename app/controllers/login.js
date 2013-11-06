@@ -1,10 +1,11 @@
 // Login controller
 
 vars = {};
+var logPrefix ='Login: ';
 
 function setDebug(flag) {
 	vars.debug = flag;
-	$.hub.logDebug('Login: debugging ' + ((vars.debug) ? 'enabled' : 'disabled'));
+	$.hub.logDebug(logPrefix + 'debugging ' + ((vars.debug) ? 'enabled' : 'disabled'));
 }
 
 function init() {	
@@ -14,14 +15,14 @@ function init() {
 	vars.textHeight = '40dp';
 	
 	Ti.App.addEventListener('got_user', function(user) {
-		//$.hub.logDebug('Login: handling app event: got_user');
+		//$.hub.logDebug(logPrefix + 'handling app event: got_user');
 		Alloy.Globals.currentUser = user;
 		$.hub.broadcast('user-acquired', user);
 		//launchMap();
 	});
 
 	Ti.App.addEventListener('need_user', function() {
-		if (vars.debug) $.hub.logDebug('Login: handling app event: need_user');
+		if (vars.debug) $.hub.logDebug(logPrefix + 'handling app event: need_user');
 		$.viewLogin.visible = true;	
 	});
 

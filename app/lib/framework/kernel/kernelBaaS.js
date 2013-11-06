@@ -2,6 +2,7 @@
 
 var Alloy = require('Alloy');
 var log = require('framework/kernel/kernelLogging').log;
+var logPrefix ='BaaS: ';
 
 // types supported: 'acs'
 var baasType = 'acs';
@@ -15,11 +16,11 @@ case 'acs':
 	
 	baas.setDebug = function(flag) {
 		baas.debug = flag;
-		log.debug('BaaS: debugging ' + ((baas.debug) ? 'enabled' : 'disabled'));
+		log.debug(logPrefix + 'debugging ' + ((baas.debug) ? 'enabled' : 'disabled'));
 	}
 	
 	baas.userLogin = function(args) {
-		if (baas.debug) log.debug('BaaS: userLogin, args: ' + JSON.stringify(args));
+		if (baas.debug) log.debug(logPrefix + 'userLogin, args: ' + JSON.stringify(args));
 		
 		acs.loginUser(args.username, args.password, function(e) {
 			resp = {
@@ -31,7 +32,7 @@ case 'acs':
 				user: e.user
 			};
 			
-			if (baas.debug) log.debug('BaaS response: ' + JSON.stringify(resp));
+			if (baas.debug) log.debug(logPrefix + 'response: ' + JSON.stringify(resp));
 	        			
 			if (args.callback) {
 				args.callback(resp);
@@ -40,7 +41,7 @@ case 'acs':
 	};
 	
 	baas.userCreate = function(args) {
-		if (baas.debug) log.debug('BaaS: userCreate, args: ' + JSON.stringify(args));
+		if (baas.debug) log.debug(logPrefix + 'userCreate args: ' + JSON.stringify(args));
 		
 		acs.createUser(args.username, args.password, function(e) {
 			resp = {
@@ -52,7 +53,7 @@ case 'acs':
 				user: e.user
 			};
 			
-			if (baas.debug) log.debug('BaaS response: ' + JSON.stringify(resp));
+			if (baas.debug) log.debug(logPrefix + 'response: ' + JSON.stringify(resp));
 	        
 			if (args.callback) {
 				args.callback(resp);
@@ -65,14 +66,14 @@ case 'acs':
 	};
 	
 	baas.sessionRestore = function() {
-		if (baas.debug) log.debug('BaaS: sessionRestore');
+		if (baas.debug) log.debug(logPrefix + 'sessionRestore');
 		acs.restoreSession();
 	};
 	
 	baas.initialized = true;
 	break;
 default:
-	log.error('BaaS: invalid type specified.');
+	log.error(logPrefix + 'invalid type specified.');
 }
 
 exports.baas = baas;
