@@ -20,7 +20,8 @@ function init () {
 	hub.listen('event', function(eventData) {
 		switch (eventData.type) {
 		case 'framework-initialized':
-			hub.logDebug(logPrefix + "handling 'framework-initialized'");
+			hub.logDebug(logPrefix + 'starting Login module');
+			hub.moduleStart('mLogin');
 			break;
 		}
 	});

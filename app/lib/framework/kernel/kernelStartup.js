@@ -48,12 +48,20 @@ function main () {
 	Kernel.extend(Kernel, {log: require('framework/kernel/kernelLogging').log}, true);
 	Kernel.extend(Kernel, {baas: require('framework/kernel/kernelBaaS').baas}, true);
 	
-	var Hub = Kernel.hub.get('main');
+	// Define privileged hub
+	Kernel.hub.define('privileged', {});
 
-	// Add Hub extensions
-	Kernel.extend(Hub, require('framework/hub/hubMain').log, true);
-	Kernel.extend(Hub, require('framework/hub/hubMain').baas, true);
+	// Add hub extensions
+	var Hub = Kernel.hub.get('main');
+	Kernel.extend(Hub, require('framework/hub/hubExtensions').log, true);
+	Kernel.extend(Hub, require('framework/hub/hubExtensions').baas, true);
 	
+	// Add privileged hub extensions
+	var HubPrivileged = Kernel.hub.get('privileged');
+	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').log, true);
+	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').baas, true);
+	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').lifecycle, true);
+
 	Kernel.baas.setDebug(true);
 	Kernel.baas.setDebug(true);
 		
@@ -68,7 +76,7 @@ function main () {
 	// Register modules
 	//Kernel.register('mConsoleLogger', 'moduleConsoleLogger');
 	Kernel.register('mEventMonitor', 'moduleEventMonitor');
-	Kernel.register('mAppManager', 'moduleAppManager');
+	Kernel.register('mAppManager', 'moduleAppManager', 'privileged');	// connects to privileged hub
 	Kernel.register('mLogin', 'moduleLogin');
 	Kernel.register('mMapView', 'moduleMapView');
 	Kernel.register('mDetailView', 'moduleDetailView');
@@ -78,7 +86,6 @@ function main () {
 	Kernel.start('mAppManager');
 	
 	Hub.broadcast('framework-initialized');
-	Kernel.start('mLogin');
 }
 
 exports.main = main;

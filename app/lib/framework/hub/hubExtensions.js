@@ -3,7 +3,7 @@
 var Alloy = require('Alloy');
 var Kernel = Alloy.Globals.Kernel;
 
-// logging support (both kernel and module broadcast)
+// Logging support (both kernel and module broadcast)
 exports.log = {
     logInfo: function(text) {    		
 		Kernel.log.info(text);
@@ -41,4 +41,20 @@ exports.baas = {
     sessionRestore: function() {
     	Kernel.baas.sessionRestore();
     }
+};
+
+// Extensions below here are privileged -------------------------------------------------
+
+// Module life-cycle support
+exports.lifecycle = {
+	moduleStart: function(name) {
+		if (!Kernel.module.isStarted(name)) {
+			Kernel.start(name);
+		}
+	},
+    moduleStop: function(name) { 
+		if (Kernel.module.isStarted(name)) {
+			Kernel.stop(name);
+		}
+	}
 };
