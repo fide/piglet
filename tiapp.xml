@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
-    <property name="acs-oauth-secret-development" type="string">f7K9JK2vNULzgEtXZIyCMbUioH8INREZ</property>
-    <property name="acs-oauth-key-development" type="string">TOwX3uwoIp6fmxMTgdW9OPBAkOfgc2aE</property>
-    <property name="acs-api-key-development" type="string">LTblo6XFpmVCj9gO0dulsbQJlXOChYXd</property>
-    <property name="acs-oauth-secret-production" type="string">bezBF16TA7rvrmmh6rzScBrzigh2kRYH</property>
-    <property name="acs-oauth-key-production" type="string">rUmjrAjNonZow0FBuf0EPeI8g8biP047</property>
-    <property name="acs-api-key-production" type="string">kfl56MXImDrf7eRBXuHbWyvSu3IVGnYy</property>
+    <property name="acs-oauth-secret-development" type="string">Pqh2iMqqJc3glOAHabXLPZ4FxHZusSrl</property>
+    <property name="acs-oauth-key-development" type="string">t7hXWrJ8Gt3TA6lt0ROfoxwH4N6MCc5q</property>
+    <property name="acs-api-key-development" type="string">1GLR9zBEOQ0SSn1XgjJ37xXda044xEsO</property>
+    <property name="acs-oauth-secret-production" type="string">vo9pxoGuw4aSA1kalNXTKRsiHPoF3XoT</property>
+    <property name="acs-oauth-key-production" type="string">uB2xxykpUp1TMVHKTRzT9VATKhvBhpyE</property>
+    <property name="acs-api-key-production" type="string">t0rSb1PB4iGDa6WuVP1hKquef4qcHLy8</property>
     <id>com.olivalabs.piglet</id>
     <name>piglet</name>
     <version>0.1</version>
@@ -20,8 +20,8 @@
     <statusbar-hidden>false</statusbar-hidden>
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
-    <analytics>false</analytics>
-    <guid>e032ca84-4664-48a4-b3b9-87c045a533c7</guid>
+    <analytics>true</analytics>
+    <guid>387f2525-a8ce-4d2b-9f88-42890960a8c6</guid>
     <property name="ti.ui.defaultunit" type="string">dip</property>
     <property name="ti.android.threadstacksize" type="int">32768</property>
     <iphone>
