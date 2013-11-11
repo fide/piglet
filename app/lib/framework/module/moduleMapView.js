@@ -1,4 +1,4 @@
-// DetailView module (CommonJS)
+// MapView module (CommonJS)
 
 var Alloy = require('Alloy');
 

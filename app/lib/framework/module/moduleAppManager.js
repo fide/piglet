@@ -10,6 +10,22 @@ function setDebug(flag) {
 	this.hub.logDebug(logPrefix + 'debugging ' + ((vars.debug) ? 'enabled' : 'disabled'));
 }
 
+
+function launchMap() {
+	var win = Alloy.createController('mapview').getView();
+	
+	var hub = this.hub;
+	
+	if (win) {
+		var arg = {};
+		if (OS_ANDROID) {
+			arg.activityEnterAnimation = Ti.Android.R.anim.slide_in_left;
+			arg.activityExitAnimation = Ti.Android.R.anim.slide_out_right;			
+		};
+		win.open(arg);
+	}
+}
+
 // Required initialization method
 function init () {
 	vars.debug = true;
@@ -22,6 +38,13 @@ function init () {
 		case 'framework-initialized':
 			hub.logDebug(logPrefix + 'starting Login module');
 			hub.moduleStart('mLogin');
+			break;
+		case 'user-acquired':
+			hub.logDebug(logPrefix + 'starting MapView module');
+			launchMap();
+			
+			hub.logDebug(logPrefix + 'stopping Login module');
+			hub.moduleStop('mLogin');
 			break;
 		}
 	});

@@ -15,10 +15,8 @@ function init() {
 	vars.textHeight = '40dp';
 	
 	Ti.App.addEventListener('got_user', function(user) {
-		//$.hub.logDebug(logPrefix + 'handling app event: got_user');
 		Alloy.Globals.currentUser = user;
 		$.hub.broadcast('user-acquired', user);
-		//launchMap();
 	});
 
 	Ti.App.addEventListener('need_user', function() {
@@ -75,26 +73,10 @@ function destroy() {
 }
 */
 
-function launchMap() {
-	var win = Alloy.createController('mapview').getView();
-	
-	if (win) {
-		var arg = {};
-		if (OS_ANDROID) {
-			arg.activityEnterAnimation = Ti.Android.R.anim.slide_in_left;
-			arg.activityExitAnimation = Ti.Android.R.anim.slide_out_right;			
-		};
-		win.open(arg);
-		$.index.close();
-	}
-}
-
 function userCallback(resp) {
 	if (resp.success === true) {
 		Alloy.Globals.currentUser = resp.user;
 		$.hub.broadcast('user-acquired', user);
-		$.hub.logDebug('foobar');
-		//launchMap();
 	} else {
         alert(JSON.stringify(resp));
 		$.tapper.enabled = true;
