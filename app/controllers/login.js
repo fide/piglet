@@ -76,7 +76,7 @@ function destroy() {
 function userCallback(resp) {
 	if (resp.success === true) {
 		Alloy.Globals.currentUser = resp.user;
-		$.hub.broadcast('user-acquired', user);
+		$.hub.broadcast('user-acquired', resp.user);
 	} else {
         alert(JSON.stringify(resp));
 		$.tapper.enabled = true;
