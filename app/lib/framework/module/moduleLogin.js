@@ -1,24 +1,28 @@
 // Login module (CommonJS)
 
+// configuration gets merged in from module startup to object 'config'
+
 var Alloy = require('Alloy');
 var _ = require('Alloy/underscore')._;
 
-vars = {};
+vars = {
+	// defaults
+	debug: false
+};
+
 var logPrefix ='Login: ';
 var win;
 var ctl;
 
-function setDebug(flag) {
-	vars.debug = flag;
-	this.hub.logDebug(logPrefix + 'debugging ' + ((vars.debug) ? 'enabled' : 'disabled'));
-}
-
 // Required initialization method
 function init () {
-	vars.debug = false;
+	if (this.hasOwnProperty('debug')) vars.debug = this.debug;
+	if (vars.debug) this.hub.logDebug(logPrefix + 'debugging enabled');;
 	
-	ctl = Alloy.createController('login');
+	ctl = Alloy.createController('login', {debug: vars.debug});
 	win = ctl.getView();
+	
+	// extend controller with access to Hub
 	_.extend(ctl, {hub: Alloy.Globals.Kernel.hub.get('main')});
 	
 	if (vars.debug) this.hub.logDebug(logPrefix + 'module started');
@@ -29,7 +33,6 @@ function init () {
 
 function open() {
 	if (vars.state == 'initialized') {
-
 		if (win) {
 			var arg = {};
 /*

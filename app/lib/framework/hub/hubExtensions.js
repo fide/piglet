@@ -54,9 +54,9 @@ exports.baas_priv = {
 
 // Module life-cycle support
 exports.lifecycle = {
-	moduleStart: function(name) {
+	moduleStart: function(name, args) {
 		if (!Kernel.module.isStarted(name)) {
-			Kernel.start(name);
+			Kernel.start(name, args);
 		}
 	},
     moduleStop: function(name) { 

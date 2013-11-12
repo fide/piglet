@@ -1,16 +1,14 @@
 // Login controller
 
-vars = {};
+var args = arguments[0] || {};
+
+vars = {
+	debug: args.debug
+};
+
 var logPrefix ='Login: ';
 
-function setDebug(flag) {
-	vars.debug = flag;
-	$.hub.logDebug(logPrefix + 'debugging ' + ((vars.debug) ? 'enabled' : 'disabled'));
-}
-
-function init() {	
-	vars.debug = true;
-	
+function init() {
 	vars.entryState = 'login';
 	vars.textHeight = '40dp';
 	
@@ -20,7 +18,7 @@ function init() {
 	});
 
 	Ti.App.addEventListener('need_user', function() {
-		if (vars.debug) $.hub.logDebug(logPrefix + 'handling app event: need_user');
+		if (vars.debug) $.hub.logDebug(logPrefix + 'received app event: need_user');
 		$.viewLogin.visible = true;	
 	});
 

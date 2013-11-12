@@ -1,4 +1,3 @@
-var acs = require('acs');
 
 if (OS_ANDROID) {
 	MapModule = Alloy.Globals.Map;

@@ -62,8 +62,6 @@ function main () {
 	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').baas, true);
 	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').baas_priv, true);
 	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').lifecycle, true);
-
-	Kernel.baas.setDebug(true);
 		
 	// Define modules
 	//Kernel.module.define('moduleConsoleLogger', require('framework/module/moduleConsoleLogger').public);
@@ -83,7 +81,7 @@ function main () {
 	
 	// start modules
 	Kernel.start('mEventMonitor');
-	Kernel.start('mAppManager');
+	Kernel.start('mAppManager', {debug:true});
 	
 	Hub.broadcast('framework-initialized');
 }

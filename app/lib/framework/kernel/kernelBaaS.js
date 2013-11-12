@@ -5,7 +5,10 @@ var log = require('framework/kernel/kernelLogging').log;
 var logPrefix ='BaaS: ';
 
 var baas = {
-	config: {}
+	// defaults
+	config: {
+		debug: false
+	}
 };
 
 // set up defaults ----------------------
@@ -18,12 +21,12 @@ baas.methods = {
 	sessionRestore: function(debug, args) { log.error(logPrefix + 'sessionRestore: unimplemented'); }
 };
 // --------------------------------------
-
-baas.debug = false;
 	
 baas.setConfig = function(config) {
 	var _ = require('Alloy/underscore')._;
 	_.extend(baas.config, config);
+	
+	if (baas.config.debug) log.debug(logPrefix + 'debugging enabled');
 
 	switch (baas.config.type) {
 	case 'acs':
@@ -37,29 +40,23 @@ baas.setConfig = function(config) {
 	}
 }
 
-baas.setDebug = function(flag) {
-	baas.debug = flag;
-	baas.methods.setDebug(baas.debug);
-	log.debug(logPrefix + 'debugging ' + ((baas.debug) ? 'enabled' : 'disabled'));
-}
-
 baas.userLogin = function(args) {
-	if (baas.debug) log.debug(logPrefix + 'userLogin, args: ' + JSON.stringify(args));
+	if (baas.config.debug) log.debug(logPrefix + 'userLogin, args: ' + JSON.stringify(args));
 	baas.methods.userLogin(args);
 };
 
 baas.userCreate = function(args) {
-	if (baas.debug) log.debug(logPrefix + 'userCreate args: ' + JSON.stringify(args));	
+	if (baas.config.debug) log.debug(logPrefix + 'userCreate args: ' + JSON.stringify(args));	
 	baas.methods.userCreate(args);
 };
 
 baas.sessionSave = function(args) {
-	if (baas.debug) log.debug(logPrefix + 'sessionSave args: ' + JSON.stringify(args));
+	if (baas.config.debug) log.debug(logPrefix + 'sessionSave args: ' + JSON.stringify(args));
 	baas.methods.sessionSave(args);	
 };
 
 baas.sessionRestore = function() {
-	if (baas.debug) log.debug(logPrefix + 'sessionRestore');
+	if (baas.config.debug) log.debug(logPrefix + 'sessionRestore');
 	baas.methods.sessionRestore();	
 };
 
