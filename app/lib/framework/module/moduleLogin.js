@@ -1,7 +1,7 @@
 // Login module (CommonJS)
 
 var Alloy = require('Alloy');
-var _ = require('Alloy/underscore');
+var _ = require('Alloy/underscore')._;
 
 vars = {};
 var logPrefix ='Login: ';

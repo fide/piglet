@@ -60,9 +60,9 @@ function main () {
 	var HubPrivileged = Kernel.hub.get('privileged');
 	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').log, true);
 	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').baas, true);
+	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').baas_priv, true);
 	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').lifecycle, true);
 
-	Kernel.baas.setDebug(true);
 	Kernel.baas.setDebug(true);
 		
 	// Define modules

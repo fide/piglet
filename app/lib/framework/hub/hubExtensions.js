@@ -45,6 +45,13 @@ exports.baas = {
 
 // Extensions below here are privileged -------------------------------------------------
 
+// BaaS support
+exports.baas_priv = {
+	setBaasConfig: function(config) {
+		Kernel.baas.setConfig(config);
+	}
+};
+
 // Module life-cycle support
 exports.lifecycle = {
 	moduleStart: function(name) {

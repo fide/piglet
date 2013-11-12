@@ -31,6 +31,9 @@ function init () {
 	vars.debug = true;
 	
 	var hub = this.hub;
+	
+	// configure use of ACS for BaaS
+	hub.setBaasConfig({type: 'acs'});
 		
 	// configure messages to listen for
 	hub.listen('event', function(eventData) {

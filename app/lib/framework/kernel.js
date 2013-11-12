@@ -23,7 +23,7 @@
 
 /* Converted to CommonJS format. John Oliva, 11/5/13 */
 
-var _ = require('alloy/underscore');
+var _ = require('alloy/underscore')._;
 
 var core, hubs = { }, modules = {}, registered = {},
 	listeners = {},
