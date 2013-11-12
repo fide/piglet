@@ -17,9 +17,9 @@ function init() {
 	if (vars.debug) this.hub.logDebug(logPrefix + 'debugging enabled');;
 	
 	ctl = Alloy.createController('mapview');
+	win = ctl.getView();
 	
 	// extend controller with access to Hub
-	win = ctl.getView();
 	_.extend(ctl, {hub: Alloy.Globals.Kernel.hub.get('main')});
 	
 	if (vars.debug) this.hub.logDebug(logPrefix + 'module started');

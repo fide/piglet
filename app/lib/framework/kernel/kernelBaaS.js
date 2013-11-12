@@ -16,8 +16,9 @@ baas.methods = {
 	setDebug: function(debug, args) { log.error(logPrefix + 'setDebug: unimplemented'); },
 	setLog: function(debug, args) { log.error(logPrefix + 'setLog: unimplemented'); },
 	userLogin: function(debug, args) { log.error(logPrefix + 'userLogin: unimplemented'); },
+	userLogout: function(debug, args) { log.error(logPrefix + 'userLogout: unimplemented'); },
+	userLoggedIn: function(debug, args) { log.error(logPrefix + 'userLoggedIn: unimplemented'); },
 	userCreate: function(debug, args) { log.error(logPrefix + 'userCreate: unimplemented'); },
-	sessionSave: function(debug, args) { log.error(logPrefix + 'sessionSave: unimplemented'); },
 	sessionRestore: function(debug, args) { log.error(logPrefix + 'sessionRestore: unimplemented'); }
 };
 // --------------------------------------
@@ -31,7 +32,7 @@ baas.setConfig = function(config) {
 	switch (baas.config.type) {
 	case 'acs':
 		baas.methods = require('framework/base/baasACS').methods;
-		baas.methods.setDebug(baas.debug);
+		baas.methods.setDebug(baas.config.debug);
 		baas.methods.setLog(log);
 		break;
 	default:
@@ -45,14 +46,20 @@ baas.userLogin = function(args) {
 	baas.methods.userLogin(args);
 };
 
+
+baas.userLogout = function(args) {
+	if (baas.config.debug) log.debug(logPrefix + 'userLogout, args: ' + JSON.stringify(args));
+	baas.methods.userLogout(args);
+};
+
+baas.userLoggedIn = function(args) {
+	if (baas.config.debug) log.debug(logPrefix + 'userLoggedIn, args: ' + JSON.stringify(args));
+	baas.methods.userLoggedIn(args);
+};
+
 baas.userCreate = function(args) {
 	if (baas.config.debug) log.debug(logPrefix + 'userCreate args: ' + JSON.stringify(args));	
 	baas.methods.userCreate(args);
-};
-
-baas.sessionSave = function(args) {
-	if (baas.config.debug) log.debug(logPrefix + 'sessionSave args: ' + JSON.stringify(args));
-	baas.methods.sessionSave(args);	
 };
 
 baas.sessionRestore = function() {

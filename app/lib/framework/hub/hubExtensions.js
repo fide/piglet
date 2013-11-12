@@ -31,7 +31,16 @@ exports.baas = {
     		callback: callback
     	});
 	},
-    userCreate: function(username, password, callback) { 
+    userLogout: function(username, callback) { 
+    	Kernel.baas.userLogout({
+    		username: username,
+    		callback: callback
+    	});
+	},
+    userLoggedIn: function() { 
+    	Kernel.baas.userLoggedIn();
+	},
+	userCreate: function(username, password, callback) { 
     	Kernel.baas.userCreate({
     		username: username,
     		password: password,
