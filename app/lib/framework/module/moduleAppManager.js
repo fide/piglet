@@ -23,6 +23,9 @@ function init () {
 	
 	// configure use of ACS for BaaS
 	hub.setBaasConfig({debug: true, type: 'acs'});
+	
+	// configure use of local property storage for key/objects
+	hub.setKeyObjectConfig({debug:true, type: 'local'});
 		
 	// configure messages to listen for
 	hub.listen('event', function(eventData) {

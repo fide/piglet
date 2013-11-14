@@ -47,6 +47,7 @@ function main () {
 	// Add Kernel extensions
 	Kernel.extend(Kernel, {log: require('framework/kernel/kernelLogging').log}, true);
 	Kernel.extend(Kernel, {baas: require('framework/kernel/kernelBaaS').baas}, true);
+	Kernel.extend(Kernel, {keyobject: require('framework/kernel/kernelKeyObject').keyobject}, true);
 	
 	// Define privileged hub
 	Kernel.hub.define('privileged', {});
@@ -55,12 +56,15 @@ function main () {
 	var Hub = Kernel.hub.get('main');
 	Kernel.extend(Hub, require('framework/hub/hubExtensions').log, true);
 	Kernel.extend(Hub, require('framework/hub/hubExtensions').baas, true);
+	Kernel.extend(Hub, require('framework/hub/hubExtensions').keyobject, true);
 	
 	// Add privileged hub extensions
 	var HubPrivileged = Kernel.hub.get('privileged');
 	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').log, true);
 	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').baas, true);
 	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').baas_priv, true);
+	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').keyobject, true);
+	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').keyobject_priv, true);
 	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').lifecycle, true);
 		
 	// Define modules

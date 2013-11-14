@@ -19,6 +19,25 @@ exports.log = {
     }
 };
 
+// Key/Value support (values are JSON objects)
+exports.keyobject = {
+	setDebug: function(flag) {
+		Kernel.keyobject.setDebug(flag);
+	},
+	getKeys: function() {
+		Kernel.keyobject.getKeys(args);
+	},
+	getObject: function(args) {
+		Kernel.keyobject.getObject(args);
+	},
+	setObject: function(args) {
+		Kernel.keyobject.setObject(args);
+	},	
+	removeObject: function(args) {
+		Kernel.keyobject.removeObject(args);
+	}
+}
+
 // BaaS support
 exports.baas = {
 	setDebug: function(flag) {
@@ -58,6 +77,13 @@ exports.baas = {
 exports.baas_priv = {
 	setBaasConfig: function(config) {
 		Kernel.baas.setConfig(config);
+	}
+};
+
+// Key/Object support
+exports.keyobject_priv = {
+	setKeyObjectConfig: function(config) {
+		Kernel.keyobject.setConfig(config);
 	}
 };
 

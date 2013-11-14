@@ -8,9 +8,9 @@ var debug = false;	// local debug support
 var loggedIn = false;
 
 var log = {
-		info: function(arg) { Ti.API.info(arg);},
-		debug: function(arg) { Ti.API.debug(arg);},
-		error: function(arg) { Ti.API.error(arg);},
+	info: function(arg) { Ti.API.info(arg);},
+	debug: function(arg) { Ti.API.debug(arg);},
+	error: function(arg) { Ti.API.error(arg);},
 };
 
 var methods = {};
