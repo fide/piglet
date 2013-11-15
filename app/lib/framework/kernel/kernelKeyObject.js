@@ -42,23 +42,23 @@ keyobject.setConfig = function(config) {
 
 keyobject.getKeys = function(args) {
 	if (keyobject.config.debug) log.debug(logPrefix + 'getKeys, args: ' + JSON.stringify(args));
-	keyobject.methods.getKeys(args);
+	return keyobject.methods.getKeys(args);
 };
 
 
 keyobject.getObject = function(args) {
 	if (keyobject.config.debug) log.debug(logPrefix + 'getObject, args: ' + JSON.stringify(args));
-	keyobject.methods.getObject(args.key);
+	return keyobject.methods.getObject(args);
 };
 
 keyobject.setObject = function(args) {
 	if (keyobject.config.debug) log.debug(logPrefix + 'setObject, args: ' + JSON.stringify(args));
-	keyobject.methods.setObject(args.key, args.object);
+	keyobject.methods.setObject(args);
 };
 
 keyobject.removeObject = function(args) {
 	if (keyobject.config.debug) log.debug(logPrefix + 'removeObject args: ' + JSON.stringify(args));	
-	keyobject.methods.removeObject(args.key);
+	keyobject.methods.removeObject(args);
 };
 
 exports.keyobject = keyobject;

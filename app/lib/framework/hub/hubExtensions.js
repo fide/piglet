@@ -25,10 +25,10 @@ exports.keyobject = {
 		Kernel.keyobject.setDebug(flag);
 	},
 	getKeys: function() {
-		Kernel.keyobject.getKeys(args);
+		return Kernel.keyobject.getKeys(args);
 	},
 	getObject: function(args) {
-		Kernel.keyobject.getObject(args);
+		return Kernel.keyobject.getObject(args);
 	},
 	setObject: function(args) {
 		Kernel.keyobject.setObject(args);
