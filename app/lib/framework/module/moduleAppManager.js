@@ -45,6 +45,13 @@ function init () {
 	});
 	
 	if (vars.debug) hub.logDebug(logPrefix + 'module started');
+	
+	
+	// play with database
+	hub.setDbConfig({debug: true, type: 'local'});
+	hub.dbOpen('foobar', function(db) {
+		hub.logDebug('database opened');
+	});
 }
 
 function launchMap() {

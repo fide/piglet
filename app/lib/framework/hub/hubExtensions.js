@@ -71,6 +71,117 @@ exports.baas = {
     }
 };
 
+// SQL database support
+exports.sqldb = {
+	dbOpen: function(name, callback) {
+	   	Kernel.sqldb.dbOpen({
+    		'name': name,
+    		'callback': callback
+	   	});
+	},
+	dbExecute: function(callback, sql, vararg) {
+	   	Kernel.sqldb.db.execute({
+    		'callback': callback,
+	   		'sql': sql,
+	   		'vararg': vararg
+	   	});
+	},
+	dbClose: function(callback) {
+	   	Kernel.sqldb.db.close({
+    		'callback': callback
+    	});
+	},
+	dbRemove: function(callback) {
+	   	Kernel.sqldb.db.remove({
+    		'callback': callback
+    	});
+	},
+	dbGetLastInsertRowId: function(callback) {
+	   	Kernel.sqldb.db.getLastInsertRowId({
+    		'callback': callback
+    	});
+	},
+	dbGetName: function(callback) {
+	   	Kernel.sqldb.db.getName({
+    		'callback': callback
+    	});
+	},
+	dbSetName: function(name, callback) {
+	   	Kernel.sqldb.db.setName({
+    		'name': name,
+    		'callback': callback
+	   	});
+	},
+	dbGetRowsAffected: function(callback) {
+	   	Kernel.sqldb.db.getRowsAffected({
+    		'callback': callback
+    	});
+	},
+	dbSetRowsAffected: function(numRows, callback) {
+	   	Kernel.sqldb.db.setRowsAffected({
+	   		'numRows': numRows,
+    		'callback': callback
+    	});
+	},
+
+	rsGetTypes: function(numRows, callback) {
+		return Kernel.sqldb.rs.type;
+	},
+	rsIsValidRow: function(rs, callback) {
+	   	Kernel.sqldb.rs.isValidRow({
+	   		'rs': rs,
+    		'callback': callback
+    	});
+	},
+	rsGetFieldCount: function(rs, callback) {
+	   	Kernel.sqldb.rs.getFieldCount({
+	   		'rs': rs,
+    		'callback': callback
+    	});
+	},
+	rsGetFieldName: function(rs, index, callback) {
+	   	Kernel.sqldb.rs.getFieldName({
+	   		'rs': rs,
+	   		'index': index,
+    		'callback': callback
+    	});
+	},
+	rsGetRowCount: function(rs, callback) {
+	   	Kernel.sqldb.rs.getRowCount({
+	   		'rs': rs,
+    		'callback': callback
+    	});
+	},
+	rsGetField: function(rs, index, type, callback) {
+	   	Kernel.sqldb.rs.getField({
+	   		'rs': rs,
+	   		'index': index,
+	   		'type': type,
+    		'callback': callback
+    	});
+	},
+	rsGetFieldByName: function(rs, name, type, callback) {
+	   	Kernel.sqldb.rs.getFieldByName({
+	   		'rs': rs,
+	   		'name': name,
+	   		'type': type,
+    		'callback': callback
+    	});
+	},
+	rsNext: function(rs, callback) {
+	   	Kernel.sqldb.rs.next({
+	   		'rs': rs,
+    		'callback': callback
+    	});
+	},
+	rsClose: function(rs, callback) {
+	   	Kernel.sqldb.rs.close({
+	   		'rs': rs,
+    		'callback': callback
+    	});
+	}
+}
+
 // Extensions below here are privileged -------------------------------------------------
 
 // BaaS support
@@ -86,6 +197,13 @@ exports.keyobject_priv = {
 		Kernel.keyobject.setConfig(config);
 	}
 };
+
+// SQL database support
+exports.sqldb_priv = {
+	setDbConfig: function(config) {
+		Kernel.sqldb.setConfig(config);
+	}
+}
 
 // Module life-cycle support
 exports.lifecycle = {

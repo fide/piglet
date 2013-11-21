@@ -61,6 +61,7 @@ sqldb.setConfig = function(config) {
 
 sqldb.dbOpen = function(args) {
 	if (sqldb.config.debug) log.debug(logPrefix + 'dbOpen, args: ' + JSON.stringify(args));
+Ti.API.debug(sqldb.methods);
 	return sqldb.methods.db.open(args);
 };
 

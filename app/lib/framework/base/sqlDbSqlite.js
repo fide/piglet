@@ -1,11 +1,16 @@
-// Sqlite SQL database methods (CommonJS)
+// SQLite database methods (CommonJS)
 // compatible with kernelSqlDb conventions
 
 var DB = Ti.Database;
 var logPrefix ='SqlDbSqlite: ';
-var dbName = '';
 
 var debug = false;	// local debug support
+
+function needCB() {
+	log.error(logPrefix + needCB.caller + ' no callback provided')
+}
+
+function optionalCB() {};
 
 var log = {
 		info: function(arg) { Ti.API.info(arg);},
@@ -24,66 +29,93 @@ methods.setLog = function(_log) {
 };
 
 methods.db = {
-	name: '',
-	handle: null,
 };
 
 methods.db.open = function(args) {
-	this.db.name = args.name;
+	var cb = args.callback || needCB;
+	
 	if (debug) log.debug(logPrefix + 'db.open(' + db.name + ')');
-	return this.db.handle = DB.open(db.name);
+	cb(DB.open(db.name));
 };
 
 methods.db.execute = function(args) {
-	var sql = args.sql,
-		vararg = args.vararg;
+	var db = args.db;
+	var cb = args.callback || needCB;
+	var sql = args.sql;
+	var vararg = args.vararg;
 	
 	if (debug) log.debug(logPrefix + 'db.execute(' + sql + ', ' + vararg + ')');
-	return {rs: this.db.handle.execute(sql, vararg)};
+	cb({rs: db.execute(sql, vararg)});
 };
 
-methods.db.close = function() {
+methods.db.close = function(args) {
+	var db = args.db;
+	var cb = args.callback || optionalCB;
+	
 	if (debug) log.debug(logPrefix + 'db.close()');
-	this.db.handle.close();
+	db.close();
+	cb(true);
 };
 
-methods.db.remove = function() {
+methods.db.remove = function(args) {
+	var db = args.db;
+	var cb = args.callback || optionalCB;
+	
 	if (debug) log.debug(logPrefix + 'db.remove()');
-	this.db.handle.remove();
+	db.remove();
+	cb(true);
 };
 
-methods.db.getFile = function() {
+methods.db.getFile = function(args) {
+	var db = args.db;
+	var cb = args.callback || needCB;
+	
 	if (debug) log.debug(logPrefix + 'db.getFile()');
-	return this.db.handle.getFile();
+	cb(db.getFile());
 };
 
-
-methods.db.getLastInsertRowId = function() {
+methods.db.getLastInsertRowId = function(args) {
+	var db = args.db;
+	var cb = args.callback || needCB;
+	
 	if (debug) log.debug(logPrefix + 'db.getLastInsertRowId()');
-	return this.db.handle.getLastInsertRowId();
+	cb(db.getLastInsertRowId());
 };
 
-methods.db.getName = function() {
+methods.db.getName = function(args) {
+	var db = args.db;
+	var cb = args.callback || needCB;
+	
 	if (debug) log.debug(logPrefix + 'db.getName()');
-	return this.db.handle.getName();
+	cb(db.getName());
 };
 
 methods.db.setName = function(args) {
-	var dbName = args.name
+	var db = args.db;
+	var cb = args.callback || optionalCB;
+	var dbName = args.name;
+	
 	if (debug) log.debug(logPrefix + 'db.setName(' + dbName + ')');
-	this.db.handle.setName(dbName);
+	db.setName(dbName);
+	cb(true);
 };
 
-methods.db.getRowsAffected = function() {
+methods.db.getRowsAffected = function(args) {
+	var db = args.db;
+	var cb = args.callback || needCB;
+	
 	if (debug) log.debug(logPrefix + 'db.getRowsAffected()');
-	return this.db.handle.getRowsAffected();
+	cb(db.getRowsAffected());
 };
 
 methods.db.setRowsAffected = function(args) {
+	var db = args.db;
+	var cb = args.callback || optionalCB;
 	var numRows = args.numRows;
 	
 	if (debug) log.debug(logPrefix + 'db.setRowsAffected(' + numRows + ')');
-	this.db.handle.setRowsAffected();
+	db.setRowsAffected();
+	cb(true);
 };
 
 methods.rs = {
@@ -96,64 +128,73 @@ methods.rs = {
 };
 
 methods.rs.isValidRow = function(args) {
+	var cb = args.callback || needCB;
 	var recset = args.rs;
 	
 	if (debug) log.debug(logPrefix + 'rs.isValidRow()');
-	return recset.isValidRow();
+	cb(recset.isValidRow());
 };
 
 methods.rs.getFieldCount = function(args) {
+	var cb = args.callback || needCB;
 	var recset = args.rs;
 	
 	if (debug) log.debug(logPrefix + 'rs.getFieldCount()');
-	return recset.getFieldCount();
+	cb(recset.getFieldCount());
 };
 
 methods.rs.getFieldName = function(args) {
+	var cb = args.callback || needCB;
 	var recset = args.rs,
 		fieldIndex = args.index;
 	
 	if (debug) log.debug(logPrefix + 'rs.getFieldName(' + fieldIndex + ')');
-	return recset.getFieldName(fieldIndex);
+	cb(recset.getFieldName(fieldIndex));
 };
 
 methods.rs.getRowCount = function(args) {
+	var cb = args.callback || needCB;
 	var recset = args.rs;
 	
 	if (debug) log.debug(logPrefix + 'rs.getRowCount()');
-	return recset.getRowCount();
+	cb(recset.getRowCount());
 };
 
 methods.rs.getField = function(args) {
+	var cb = args.callback || needCB;
 	var recset = args.rs,
 		fieldIndex = args.index,
 		type = args.type;
 	
 	if (debug) log.debug(logPrefix + 'rs.getField(' + fieldIndex + ')');
-	return recset.getField(fieldIndex, type);
+	cb(recset.getField(fieldIndex, type));
 };
 
 methods.rs.getFieldByName = function(args) {
+	var cb = args.callback || needCB;
 	var recset = args.rs,
-		fieldName = args.fieldName,
+		name = args.name,
 		type = args.type;
 	
-	if (debug) log.debug(logPrefix + 'rs.getFieldByName(' + fieldName + ')');
-	return recset.getFieldByName(fieldName, type);
+	if (debug) log.debug(logPrefix + 'rs.getFieldByName(' + name + ')');
+	cb(recset.getFieldByName(name, type));
 };
 
 methods.rs.next = function(args) {
+	var cb = args.callback || needCB;
 	var recset = args.rs;
 	
 	if (debug) log.debug(logPrefix + 'rs.next()');
-	return recset.next();
+	cb(recset.next());
 };
 
 methods.rs.close = function(args) {
+	var cb = args.callback || optionalCB;
 	var recset = args.rs;
 	
 	if (debug) log.debug(logPrefix + 'rs.close()');
 	recset.close();
+	cb(true);
 };
 
 exports.methods = methods;

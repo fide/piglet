@@ -48,6 +48,7 @@ function main () {
 	Kernel.extend(Kernel, {log: require('framework/kernel/kernelLogging').log}, true);
 	Kernel.extend(Kernel, {baas: require('framework/kernel/kernelBaaS').baas}, true);
 	Kernel.extend(Kernel, {keyobject: require('framework/kernel/kernelKeyObject').keyobject}, true);
+	Kernel.extend(Kernel, {sqldb: require('framework/kernel/kernelSqlDb').sqldb}, true);
 	
 	// Define privileged hub
 	Kernel.hub.define('privileged', {});
@@ -57,6 +58,7 @@ function main () {
 	Kernel.extend(Hub, require('framework/hub/hubExtensions').log, true);
 	Kernel.extend(Hub, require('framework/hub/hubExtensions').baas, true);
 	Kernel.extend(Hub, require('framework/hub/hubExtensions').keyobject, true);
+	Kernel.extend(Hub, require('framework/hub/hubExtensions').sqldb, true);
 	
 	// Add privileged hub extensions
 	var HubPrivileged = Kernel.hub.get('privileged');
@@ -65,6 +67,8 @@ function main () {
 	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').baas_priv, true);
 	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').keyobject, true);
 	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').keyobject_priv, true);
+	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').sqldb, true);
+	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').sqldb_priv, true);
 	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').lifecycle, true);
 		
 	// Define modules
