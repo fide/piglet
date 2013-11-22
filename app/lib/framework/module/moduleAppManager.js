@@ -26,7 +26,10 @@ function init () {
 	
 	// configure use of local property storage for key/objects
 	hub.setKeyObjectConfig({debug:true, type: 'local'});
-		
+
+	// configure use of local SQLite storage for database
+	hub.setDbConfig({debug: true, type: 'local'});
+
 	// configure messages to listen for
 	hub.listen('event', function(eventData) {
 		switch (eventData.type) {
@@ -45,13 +48,6 @@ function init () {
 	});
 	
 	if (vars.debug) hub.logDebug(logPrefix + 'module started');
-	
-	
-	// play with database
-	hub.setDbConfig({debug: true, type: 'local'});
-	hub.dbOpen('foobar', function(db) {
-		hub.logDebug('database opened');
-	});
 }
 
 function launchMap() {

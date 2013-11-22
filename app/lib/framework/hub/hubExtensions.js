@@ -79,46 +79,54 @@ exports.sqldb = {
     		'callback': callback
 	   	});
 	},
-	dbExecute: function(callback, sql, vararg) {
-	   	Kernel.sqldb.db.execute({
+	dbExecute: function(db, sql, callback, vararg) {
+	   	Kernel.sqldb.dbExecute({
+	   		'db': db,
     		'callback': callback,
 	   		'sql': sql,
 	   		'vararg': vararg
 	   	});
 	},
-	dbClose: function(callback) {
-	   	Kernel.sqldb.db.close({
+	dbClose: function(db, callback) {
+	   	Kernel.sqldb.dbClose({
+	   		'db': db,
     		'callback': callback
     	});
 	},
-	dbRemove: function(callback) {
-	   	Kernel.sqldb.db.remove({
+	dbRemove: function(db, callback) {
+	   	Kernel.sqldb.dbRemove({
+	   		'db': db,
     		'callback': callback
     	});
 	},
-	dbGetLastInsertRowId: function(callback) {
-	   	Kernel.sqldb.db.getLastInsertRowId({
+	dbGetLastInsertRowId: function(db, callback) {
+	   	Kernel.sqldb.dbGetLastInsertRowId({
+	   		'db': db,
     		'callback': callback
     	});
 	},
-	dbGetName: function(callback) {
-	   	Kernel.sqldb.db.getName({
+	dbGetName: function(db, callback) {
+	   	Kernel.sqldb.dbGetName({
+	   		'db': db,
     		'callback': callback
     	});
 	},
-	dbSetName: function(name, callback) {
-	   	Kernel.sqldb.db.setName({
+	dbSetName: function(db, name, callback) {
+	   	Kernel.sqldb.dbSetName({
+	   		'db': db,
     		'name': name,
     		'callback': callback
 	   	});
 	},
-	dbGetRowsAffected: function(callback) {
-	   	Kernel.sqldb.db.getRowsAffected({
+	dbGetRowsAffected: function(db, callback) {
+	   	Kernel.sqldb.dbGetRowsAffected({
+	   		'db': db,
     		'callback': callback
     	});
 	},
-	dbSetRowsAffected: function(numRows, callback) {
-	   	Kernel.sqldb.db.setRowsAffected({
+	dbSetRowsAffected: function(db, numRows, callback) {
+	   	Kernel.sqldb.dbSetRowsAffected({
+	   		'db': db,
 	   		'numRows': numRows,
     		'callback': callback
     	});
@@ -128,32 +136,32 @@ exports.sqldb = {
 		return Kernel.sqldb.rs.type;
 	},
 	rsIsValidRow: function(rs, callback) {
-	   	Kernel.sqldb.rs.isValidRow({
+	   	Kernel.sqldb.rsIsValidRow({
 	   		'rs': rs,
     		'callback': callback
     	});
 	},
 	rsGetFieldCount: function(rs, callback) {
-	   	Kernel.sqldb.rs.getFieldCount({
+	   	Kernel.sqldb.rsGetFieldCount({
 	   		'rs': rs,
     		'callback': callback
     	});
 	},
 	rsGetFieldName: function(rs, index, callback) {
-	   	Kernel.sqldb.rs.getFieldName({
+	   	Kernel.sqldb.rsGetFieldName({
 	   		'rs': rs,
 	   		'index': index,
     		'callback': callback
     	});
 	},
 	rsGetRowCount: function(rs, callback) {
-	   	Kernel.sqldb.rs.getRowCount({
+	   	Kernel.sqldb.rsGetRowCount({
 	   		'rs': rs,
     		'callback': callback
     	});
 	},
 	rsGetField: function(rs, index, type, callback) {
-	   	Kernel.sqldb.rs.getField({
+	   	Kernel.sqldb.rsGetField({
 	   		'rs': rs,
 	   		'index': index,
 	   		'type': type,
@@ -161,7 +169,7 @@ exports.sqldb = {
     	});
 	},
 	rsGetFieldByName: function(rs, name, type, callback) {
-	   	Kernel.sqldb.rs.getFieldByName({
+	   	Kernel.sqldb.rsGetFieldByName({
 	   		'rs': rs,
 	   		'name': name,
 	   		'type': type,
@@ -169,13 +177,13 @@ exports.sqldb = {
     	});
 	},
 	rsNext: function(rs, callback) {
-	   	Kernel.sqldb.rs.next({
+	   	Kernel.sqldb.rsNext({
 	   		'rs': rs,
     		'callback': callback
     	});
 	},
 	rsClose: function(rs, callback) {
-	   	Kernel.sqldb.rs.close({
+	   	Kernel.sqldb.rsClose({
 	   		'rs': rs,
     		'callback': callback
     	});

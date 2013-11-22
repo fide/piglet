@@ -28,14 +28,14 @@ methods.setLog = function(_log) {
 	log = _log;
 };
 
-methods.db = {
-};
+methods.db = {};
 
 methods.db.open = function(args) {
+	var name = args.name;
 	var cb = args.callback || needCB;
 	
-	if (debug) log.debug(logPrefix + 'db.open(' + db.name + ')');
-	cb(DB.open(db.name));
+	if (debug) log.debug(logPrefix + 'db.open(' + name + ')');
+	cb(DB.open(name));
 };
 
 methods.db.execute = function(args) {
@@ -44,8 +44,13 @@ methods.db.execute = function(args) {
 	var sql = args.sql;
 	var vararg = args.vararg;
 	
-	if (debug) log.debug(logPrefix + 'db.execute(' + sql + ', ' + vararg + ')');
-	cb({rs: db.execute(sql, vararg)});
+	if (vararg) {
+		if (debug) log.debug(logPrefix + "db.execute(" + "'" + sql + "'" + ", " + vararg + ")");
+		cb({rs: db.execute(sql, vararg)});
+	} else {
+		if (debug) log.debug(logPrefix + "db.execute(" + "'" + sql + "')");
+		cb({rs: db.execute(sql)});
+	}
 };
 
 methods.db.close = function(args) {

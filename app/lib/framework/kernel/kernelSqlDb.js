@@ -39,8 +39,9 @@ sqldb.methods = {
 		close: function(debug, args) { log.error(logPrefix + 'rs.close: unimplemented'); }
 	}
 };
+
 // --------------------------------------
-	
+
 sqldb.setConfig = function(config) {
 	var _ = require('Alloy/underscore')._;
 	_.extend(sqldb.config, config);
@@ -49,7 +50,7 @@ sqldb.setConfig = function(config) {
 
 	switch (sqldb.config.type) {
 	case 'local':
-		sqldb.methods = require('framework/base/sqlDbSqlite').methods;
+		sqldb.methods = require('framework/base/sqlDbSqlite').methods;		
 		sqldb.methods.setDebug(sqldb.config.debug);
 		sqldb.methods.setLog(log);
 		break;
@@ -61,7 +62,6 @@ sqldb.setConfig = function(config) {
 
 sqldb.dbOpen = function(args) {
 	if (sqldb.config.debug) log.debug(logPrefix + 'dbOpen, args: ' + JSON.stringify(args));
-Ti.API.debug(sqldb.methods);
 	return sqldb.methods.db.open(args);
 };
 
