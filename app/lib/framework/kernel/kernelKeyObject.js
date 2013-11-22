@@ -42,13 +42,13 @@ keyobject.setConfig = function(config) {
 
 keyobject.getKeys = function(args) {
 	if (keyobject.config.debug) log.debug(logPrefix + 'getKeys, args: ' + JSON.stringify(args));
-	return keyobject.methods.getKeys(args);
+	keyobject.methods.getKeys(args);
 };
 
 
 keyobject.getObject = function(args) {
 	if (keyobject.config.debug) log.debug(logPrefix + 'getObject, args: ' + JSON.stringify(args));
-	return keyobject.methods.getObject(args);
+	keyobject.methods.getObject(args);
 };
 
 keyobject.setObject = function(args) {

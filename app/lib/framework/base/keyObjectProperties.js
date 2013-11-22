@@ -6,6 +6,12 @@ var logPrefix ='TiProperties: ';
 
 var debug = false;	// local debug support
 
+function needCB() {
+	log.error(logPrefix + needCB.caller + ' no callback provided')
+}
+
+function optionalCB() {};
+
 var log = {
 		info: function(arg) { Ti.API.info(arg);},
 		debug: function(arg) { Ti.API.debug(arg);},
@@ -23,31 +29,38 @@ methods.setLog = function(_log) {
 };
 
 methods.getKeys = function(args) {
+	var cb = args.callback || needCB;
+	
 	if (debug) log.debug(logPrefix + 'getKeys');
-	return TAP.listProperties()
+	cb(TAP.listProperties());
 }
 
 methods.getObject = function(args) {
-	var key = args.key,
-		object = TAP.getObject(key);
+	var cb = args.callback || needCB;
+	var key = args.key;
 	
-	if (debug) log.debug(logPrefix + 'getObject('+key+') = ' + JSON.stringify(object));
-	return object;
+	var object = TAP.getObject(key);
+	if (debug) log.debug(logPrefix + 'getObject('+key+')' + JSON.stringify(object));
+	cb(object);
 }
 
 methods.setObject = function(args) {
-	var key = args.key,
-		object = args.object;
+	var cb = args.callback || optionalCB;
+	var key = args.key;
+	var object = args.object;
 	
 	if (debug) log.debug(logPrefix + 'setObject('+key+') = ' + JSON.stringify(object));
 	TAP.setObject(key, object);
+	cb(true);
 }
 
 methods.removeObject = function(args) {
+	var cb = args.callback || optionalCB;
 	var key = args.key;
 
 	if (debug) log.debug(logPrefix + 'removeObject('+key+')');
 	TAP.removeProperty(key);
+	cb(true);
 }
 
 exports.methods = methods;
