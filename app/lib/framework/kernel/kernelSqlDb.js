@@ -62,12 +62,12 @@ sqldb.setConfig = function(config) {
 
 sqldb.dbOpen = function(args) {
 	if (sqldb.config.debug) log.debug(logPrefix + 'dbOpen, args: ' + JSON.stringify(args));
-	return sqldb.methods.db.open(args);
+	sqldb.methods.db.open(args);
 };
 
 sqldb.dbExecute = function(args) {
 	if (sqldb.config.debug) log.debug(logPrefix + 'dbExecute, args: ' + JSON.stringify(args));
-	return sqldb.methods.db.execute(args);
+	sqldb.methods.db.execute(args);
 };
 
 
@@ -84,17 +84,17 @@ sqldb.dbRemove = function(args) {
 
 sqldb.dbGetFile = function(args) {
 	if (sqldb.config.debug) log.debug(logPrefix + 'dbGetFile, args: ' + JSON.stringify(args));
-	return sqldb.methods.db.getFile(args);
+	sqldb.methods.db.getFile(args);
 };
 
 sqldb.dbGetLastInsertRowId = function(args) {
 	if (sqldb.config.debug) log.debug(logPrefix + 'dbGetLastInsertRowId, args: ' + JSON.stringify(args));
-	return sqldb.methods.db.getLastInsertRowId(args);
+	sqldb.methods.db.getLastInsertRowId(args);
 };
 
 sqldb.dbGetName = function(args) {
 	if (sqldb.config.debug) log.debug(logPrefix + 'dbGetName, args: ' + JSON.stringify(args));
-	return sqldb.methods.db.getName(args);
+	sqldb.methods.db.getName(args);
 };
 
 sqldb.dbSetName = function(args) {
@@ -104,7 +104,7 @@ sqldb.dbSetName = function(args) {
 
 sqldb.dbGetRowsAffected = function(args) {
 	if (sqldb.config.debug) log.debug(logPrefix + 'dbGetRowsAffected, args: ' + JSON.stringify(args));
-	return sqldb.methods.db.getRowsAffected(args);
+	sqldb.methods.db.getRowsAffected(args);
 };
 
 sqldb.dbSetRowsAffected = function(args) {
@@ -116,37 +116,37 @@ sqldb.rsType = sqldb.methods.rs.type;
 
 sqldb.rsIsValidRow = function(args) {
 	if (sqldb.config.debug) log.debug(logPrefix + 'rsIsValidRow, args: ' + JSON.stringify(args));
-	return sqldb.methods.rs.isValidRow(args);
+	sqldb.methods.rs.isValidRow(args);
 };
 
 sqldb.rsGetFieldCount = function(args) {
 	if (sqldb.config.debug) log.debug(logPrefix + 'rsGetFieldCount, args: ' + JSON.stringify(args));
-	return sqldb.methods.rs.getFieldCount(args);
+	sqldb.methods.rs.getFieldCount(args);
 };
 
 sqldb.rsGetFieldName = function(args) {
 	if (sqldb.config.debug) log.debug(logPrefix + 'rsGetFieldName, args: ' + JSON.stringify(args));
-	return sqldb.methods.rs.getFieldName(args);
+	sqldb.methods.rs.getFieldName(args);
 };
 
 sqldb.rsGetRowCount = function(args) {
 	if (sqldb.config.debug) log.debug(logPrefix + 'rsGetRowCount, args: ' + JSON.stringify(args));
-	return sqldb.methods.rs.getRowCount(args);
+	sqldb.methods.rs.getRowCount(args);
 };
 
 sqldb.rsGetField = function(args) {
 	if (sqldb.config.debug) log.debug(logPrefix + 'rsGetField, args: ' + JSON.stringify(args));
-	return sqldb.methods.getField.setRowsAffected(args);
+	sqldb.methods.getField.setRowsAffected(args);
 };
 
 sqldb.rsGetFieldByName = function(args) {
 	if (sqldb.config.debug) log.debug(logPrefix + 'rsGetFieldByName, args: ' + JSON.stringify(args));
-	return sqldb.methods.rs.getFieldByName(args);
+	sqldb.methods.rs.getFieldByName(args);
 };
 
 sqldb.rsNext = function(args) {
 	if (sqldb.config.debug) log.debug(logPrefix + 'rsNext, args: ' + JSON.stringify(args));
-	return sqldb.methods.rs.next(args);
+	sqldb.methods.rs.next(args);
 };
 
 sqldb.rsClose = function(args) {
