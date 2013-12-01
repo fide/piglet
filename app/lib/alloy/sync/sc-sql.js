@@ -1,5 +1,5 @@
 var _ = require('alloy/underscore')._,
-	sqldb = require('framework/kernel/kernelSqlDb').sqldb;
+var sqldb = require('framework/kernel/kernelSqlDb').sqldb;
 
 // The database name used when none is specified in the
 // model configuration.
@@ -46,11 +46,34 @@ function Sync(method, model, opts) {
 					q.push("?");
 				}
 
-				// execute the query
-				sql = "REPLACE INTO " + table + " (" + names.join(",") + ") VALUES (" + q.join(",") + ");";
-				db = Ti.Database.open(dbName);
-				db.execute('BEGIN;');
-				db.execute(sql, values);
+				
+//				db = Ti.Database.open(dbName);
+				sqldb.dbOpen({
+					name: dbName,
+					callback: function(err, result) {
+						if (err) throw err;
+						db = result.db;
+						
+//						db.execute('BEGIN;');
+						sqldb.dbExecute({
+							db: db,
+							sql: 'BEGIN;',
+							vararg: null,
+							callback: function(err, result) {
+								if (err) throw err;
+								
+//								db.execute(sql, values);
+								var sql = "REPLACE INTO " + table + " (" + names.join(",") + ") VALUES (" + q.join(",") + ");";
+								sqldb.dbExecute({
+									db: db,
+									sql: values,
+									callback: function(err, result) {
+										if (err) throw err;
+								});
+							}
+						});
+					}
+				})
 
 				// if model.id is still null, grab the last inserted id
 				if (model.id === null) {
