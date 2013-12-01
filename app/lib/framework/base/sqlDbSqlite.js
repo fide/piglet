@@ -35,7 +35,7 @@ methods.db.open = function(args) {
 	var cb = args.callback || needCB;
 	
 	if (debug) log.debug(logPrefix + 'db.open(' + name + ')');
-	cb(DB.open(name));
+	cb(null, {db:DB.open(name)});
 };
 
 methods.db.execute = function(args) {
@@ -49,7 +49,7 @@ methods.db.execute = function(args) {
 		cb({rs: db.execute(sql, vararg)});
 	} else {
 		if (debug) log.debug(logPrefix + "db.execute(" + "'" + sql + "')");
-		cb({rs: db.execute(sql)});
+		cb(null, {rs: db.execute(sql)});
 	}
 };
 
@@ -59,7 +59,7 @@ methods.db.close = function(args) {
 	
 	if (debug) log.debug(logPrefix + 'db.close()');
 	db.close();
-	cb(true);
+	cb(null, {code:true});
 };
 
 methods.db.remove = function(args) {
@@ -68,7 +68,7 @@ methods.db.remove = function(args) {
 	
 	if (debug) log.debug(logPrefix + 'db.remove()');
 	db.remove();
-	cb(true);
+	cb(null, {code:true});
 };
 
 methods.db.getFile = function(args) {
@@ -76,7 +76,7 @@ methods.db.getFile = function(args) {
 	var cb = args.callback || needCB;
 	
 	if (debug) log.debug(logPrefix + 'db.getFile()');
-	cb(db.getFile());
+	cb(null: {file: db.getFile()});
 };
 
 methods.db.getLastInsertRowId = function(args) {
@@ -84,7 +84,7 @@ methods.db.getLastInsertRowId = function(args) {
 	var cb = args.callback || needCB;
 	
 	if (debug) log.debug(logPrefix + 'db.getLastInsertRowId()');
-	cb(db.getLastInsertRowId());
+	cb(null, {id: db.getLastInsertRowId()});
 };
 
 methods.db.getName = function(args) {
@@ -92,7 +92,7 @@ methods.db.getName = function(args) {
 	var cb = args.callback || needCB;
 	
 	if (debug) log.debug(logPrefix + 'db.getName()');
-	cb(db.getName());
+	cb(null, {name: db.getName()});
 };
 
 methods.db.setName = function(args) {
@@ -102,7 +102,7 @@ methods.db.setName = function(args) {
 	
 	if (debug) log.debug(logPrefix + 'db.setName(' + dbName + ')');
 	db.setName(dbName);
-	cb(true);
+	cb(null, {code:true});
 };
 
 methods.db.getRowsAffected = function(args) {
@@ -110,7 +110,7 @@ methods.db.getRowsAffected = function(args) {
 	var cb = args.callback || needCB;
 	
 	if (debug) log.debug(logPrefix + 'db.getRowsAffected()');
-	cb(db.getRowsAffected());
+	cb(null, {rows: db.getRowsAffected()});
 };
 
 methods.db.setRowsAffected = function(args) {
@@ -120,7 +120,7 @@ methods.db.setRowsAffected = function(args) {
 	
 	if (debug) log.debug(logPrefix + 'db.setRowsAffected(' + numRows + ')');
 	db.setRowsAffected();
-	cb(true);
+	cb(null, {code:true});
 };
 
 methods.rs = {
@@ -137,7 +137,7 @@ methods.rs.isValidRow = function(args) {
 	var recset = args.rs;
 	
 	if (debug) log.debug(logPrefix + 'rs.isValidRow()');
-	cb(recset.isValidRow());
+	cb(null, {code: recset.isValidRow()});
 };
 
 methods.rs.getFieldCount = function(args) {
@@ -145,7 +145,7 @@ methods.rs.getFieldCount = function(args) {
 	var recset = args.rs;
 	
 	if (debug) log.debug(logPrefix + 'rs.getFieldCount()');
-	cb(recset.getFieldCount());
+	cb(null, {count: recset.getFieldCount()});
 };
 
 methods.rs.getFieldName = function(args) {
@@ -154,7 +154,7 @@ methods.rs.getFieldName = function(args) {
 		fieldIndex = args.index;
 	
 	if (debug) log.debug(logPrefix + 'rs.getFieldName(' + fieldIndex + ')');
-	cb(recset.getFieldName(fieldIndex));
+	cb(null, {name: recset.getFieldName(fieldIndex)});
 };
 
 methods.rs.getRowCount = function(args) {
@@ -162,7 +162,7 @@ methods.rs.getRowCount = function(args) {
 	var recset = args.rs;
 	
 	if (debug) log.debug(logPrefix + 'rs.getRowCount()');
-	cb(recset.getRowCount());
+	cb(null, {count: recset.getRowCount()});
 };
 
 methods.rs.getField = function(args) {
@@ -172,7 +172,7 @@ methods.rs.getField = function(args) {
 		type = args.type;
 	
 	if (debug) log.debug(logPrefix + 'rs.getField(' + fieldIndex + ')');
-	cb(recset.getField(fieldIndex, type));
+	cb(null, {index: recset.getField(fieldIndex, type)});
 };
 
 methods.rs.getFieldByName = function(args) {
@@ -182,7 +182,7 @@ methods.rs.getFieldByName = function(args) {
 		type = args.type;
 	
 	if (debug) log.debug(logPrefix + 'rs.getFieldByName(' + name + ')');
-	cb(recset.getFieldByName(name, type));
+	cb(null, {field: recset.getFieldByName(name, type)});
 };
 
 methods.rs.next = function(args) {
@@ -190,7 +190,7 @@ methods.rs.next = function(args) {
 	var recset = args.rs;
 	
 	if (debug) log.debug(logPrefix + 'rs.next()');
-	cb(recset.next());
+	cb(null, {code: recset.next()});
 };
 
 methods.rs.close = function(args) {
@@ -199,7 +199,7 @@ methods.rs.close = function(args) {
 	
 	if (debug) log.debug(logPrefix + 'rs.close()');
 	recset.close();
-	cb(true);
+	cb(null, {code:true});
 };
 
 exports.methods = methods;
