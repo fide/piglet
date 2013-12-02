@@ -1,7 +1,7 @@
 // SQL database kernel extension (CommonJS)
 
 var Alloy = require('Alloy');
-var log = require('framework/kernel/core/kernelLogging').log;
+var log = require('sc-framework/kernel/core/kernelLogging').log;
 var logPrefix ='SqlDb: ';
 
 var sqldb = {
@@ -50,7 +50,7 @@ sqldb.setConfig = function(config) {
 
 	switch (sqldb.config.type) {
 	case 'local':
-		sqldb.methods = require('framework/base/core/sqlDbSqlite').methods;		
+		sqldb.methods = require('sc-framework/base/core/sqlDbSqlite').methods;		
 		sqldb.methods.setDebug(sqldb.config.debug);
 		sqldb.methods.setLog(log);
 		break;

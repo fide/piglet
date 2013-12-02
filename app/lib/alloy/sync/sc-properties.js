@@ -1,7 +1,7 @@
 var Alloy = require('alloy');
 var _ = require("alloy/underscore")._;
 var async = require('async');
-var keyobject = require('framework/kernel/core/kernelKeyObject').keyobject;
+var keyobject = require('sc-framework/kernel/core/kernelKeyObject').keyobject;
 
 function S4() {
    return (((1+Math.random())*0x10000)|0).toString(16).substring(1);

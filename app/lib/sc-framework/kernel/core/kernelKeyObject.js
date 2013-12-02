@@ -1,7 +1,7 @@
 // Key/Object kernel extension (CommonJS)
 
 var Alloy = require('Alloy');
-var log = require('framework/kernel/core/kernelLogging').log;
+var log = require('sc-framework/kernel/core/kernelLogging').log;
 var logPrefix ='KeyObject: ';
 
 var keyobject = {
@@ -30,7 +30,7 @@ keyobject.setConfig = function(config) {
 
 	switch (keyobject.config.type) {
 	case 'local':
-		keyobject.methods = require('framework/base/core/keyObjectProperties').methods;
+		keyobject.methods = require('sc-framework/base/core/keyObjectProperties').methods;
 		keyobject.methods.setDebug(keyobject.config.debug);
 		keyobject.methods.setLog(log);
 		break;

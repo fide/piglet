@@ -1,7 +1,7 @@
 // BaaS kernel extension (CommonJS)
 
 var Alloy = require('Alloy');
-var log = require('framework/kernel/core/kernelLogging').log;
+var log = require('sc-framework/kernel/core/kernelLogging').log;
 var logPrefix ='BaaS: ';
 
 var baas = {
@@ -31,7 +31,7 @@ baas.setConfig = function(config) {
 
 	switch (baas.config.type) {
 	case 'acs':
-		baas.methods = require('framework/base/core/baasACS').methods;
+		baas.methods = require('sc-framework/base/core/baasACS').methods;
 		baas.methods.setDebug(baas.config.debug);
 		baas.methods.setLog(log);
 		break;

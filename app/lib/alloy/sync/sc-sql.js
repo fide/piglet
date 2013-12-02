@@ -1,5 +1,5 @@
 var _ = require('alloy/underscore')._;
-var sqldb = require('framework/kernel/core/kernelSqlDb').sqldb;
+var sqldb = require('sc-framework/kernel/core/kernelSqlDb').sqldb;
 
 // The database name used when none is specified in the
 // model configuration.
