@@ -76,7 +76,7 @@ methods.db.getFile = function(args) {
 	var cb = args.callback || needCB;
 	
 	if (debug) log.debug(logPrefix + 'db.getFile()');
-	cb(null: {file: db.getFile()});
+	cb(null, {file: db.getFile()});
 };
 
 methods.db.getLastInsertRowId = function(args) {

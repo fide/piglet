@@ -1,4 +1,4 @@
-var _ = require('alloy/underscore')._,
+var _ = require('alloy/underscore')._;
 var sqldb = require('framework/kernel/kernelSqlDb').sqldb;
 
 // The database name used when none is specified in the
@@ -46,7 +46,6 @@ function Sync(method, model, opts) {
 					q.push("?");
 				}
 
-				
 //				db = Ti.Database.open(dbName);
 				sqldb.dbOpen({
 					name: dbName,
@@ -69,12 +68,13 @@ function Sync(method, model, opts) {
 									sql: values,
 									callback: function(err, result) {
 										if (err) throw err;
+									}
 								});
 							}
 						});
 					}
 				})
-
+				
 				// if model.id is still null, grab the last inserted id
 				if (model.id === null) {
 					var sqlId = "SELECT last_insert_rowid();";
