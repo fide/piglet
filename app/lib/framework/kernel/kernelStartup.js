@@ -42,7 +42,7 @@ function main () {
 	//---------------------------------------------------------------------------------------
 	
 	// Create Kernel object and store on Alloy.Globals
-	var Kernel = Alloy.Globals.Kernel = require('framework/base/kernel');
+	var Kernel = Alloy.Globals.Kernel = require('framework/base/core/kernel');
 
 	// Add Kernel extensions
 	Kernel.extend(Kernel, {log: require('framework/kernel/kernelLogging').log}, true);

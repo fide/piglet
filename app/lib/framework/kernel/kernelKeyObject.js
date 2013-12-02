@@ -30,7 +30,7 @@ keyobject.setConfig = function(config) {
 
 	switch (keyobject.config.type) {
 	case 'local':
-		keyobject.methods = require('framework/base/keyObjectProperties').methods;
+		keyobject.methods = require('framework/base/core/keyObjectProperties').methods;
 		keyobject.methods.setDebug(keyobject.config.debug);
 		keyobject.methods.setLog(log);
 		break;

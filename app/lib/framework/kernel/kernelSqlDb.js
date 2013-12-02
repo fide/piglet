@@ -50,7 +50,7 @@ sqldb.setConfig = function(config) {
 
 	switch (sqldb.config.type) {
 	case 'local':
-		sqldb.methods = require('framework/base/sqlDbSqlite').methods;		
+		sqldb.methods = require('framework/base/core/sqlDbSqlite').methods;		
 		sqldb.methods.setDebug(sqldb.config.debug);
 		sqldb.methods.setLog(log);
 		break;

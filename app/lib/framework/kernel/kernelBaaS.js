@@ -31,7 +31,7 @@ baas.setConfig = function(config) {
 
 	switch (baas.config.type) {
 	case 'acs':
-		baas.methods = require('framework/base/baasACS').methods;
+		baas.methods = require('framework/base/core/baasACS').methods;
 		baas.methods.setDebug(baas.config.debug);
 		baas.methods.setLog(log);
 		break;
