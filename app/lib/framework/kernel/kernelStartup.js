@@ -72,8 +72,8 @@ function main () {
 	Kernel.extend(HubPrivileged, require('framework/hub/core/hubExtensions').lifecycle, true);
 		
 	// Define modules
-	//Kernel.module.define('moduleConsoleLogger', require('framework/module/moduleConsoleLogger').public);
-	Kernel.module.define('moduleEventMonitor', require('framework/module/moduleEventMonitor').public);
+	//Kernel.module.define('moduleConsoleLogger', require('framework/module/core/moduleConsoleLogger').public);
+	Kernel.module.define('moduleEventMonitor', require('framework/module/core/moduleEventMonitor').public);
 	Kernel.module.define('moduleAppManager', require('framework/module/moduleAppManager').public);
 	Kernel.module.define('moduleLogin', require('framework/module/moduleLogin').public);
 	Kernel.module.define('moduleMapView', require('framework/module/moduleMapView').public);
