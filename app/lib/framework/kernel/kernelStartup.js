@@ -44,11 +44,11 @@ function main () {
 	// Create Kernel object and store on Alloy.Globals
 	var Kernel = Alloy.Globals.Kernel = require('framework/base/core/kernel');
 
-	// Add Kernel extensions
-	Kernel.extend(Kernel, {log: require('framework/kernel/kernelLogging').log}, true);
-	Kernel.extend(Kernel, {baas: require('framework/kernel/kernelBaaS').baas}, true);
-	Kernel.extend(Kernel, {keyobject: require('framework/kernel/kernelKeyObject').keyobject}, true);
-	Kernel.extend(Kernel, {sqldb: require('framework/kernel/kernelSqlDb').sqldb}, true);
+	// Add core Kernel extensions
+	Kernel.extend(Kernel, {log: require('framework/kernel/core/kernelLogging').log}, true);
+	Kernel.extend(Kernel, {baas: require('framework/kernel/core/kernelBaaS').baas}, true);
+	Kernel.extend(Kernel, {keyobject: require('framework/kernel/core/kernelKeyObject').keyobject}, true);
+	Kernel.extend(Kernel, {sqldb: require('framework/kernel/core/kernelSqlDb').sqldb}, true);
 	
 	// Define privileged hub
 	Kernel.hub.define('privileged', {});

@@ -1,7 +1,7 @@
 // Key/Object kernel extension (CommonJS)
 
 var Alloy = require('Alloy');
-var log = require('framework/kernel/kernelLogging').log;
+var log = require('framework/kernel/core/kernelLogging').log;
 var logPrefix ='KeyObject: ';
 
 var keyobject = {
