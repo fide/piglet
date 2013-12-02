@@ -12,4 +12,4 @@
 
 
 // Framework based application start
-require('sc-framework/kernel/kernelStartup').main();
+require('sc-framework/sc-init').init();
