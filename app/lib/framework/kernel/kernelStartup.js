@@ -55,21 +55,21 @@ function main () {
 
 	// Add hub extensions
 	var Hub = Kernel.hub.get('main');
-	Kernel.extend(Hub, require('framework/hub/hubExtensions').log, true);
-	Kernel.extend(Hub, require('framework/hub/hubExtensions').baas, true);
-	Kernel.extend(Hub, require('framework/hub/hubExtensions').keyobject, true);
-	Kernel.extend(Hub, require('framework/hub/hubExtensions').sqldb, true);
+	Kernel.extend(Hub, require('framework/hub/core/hubExtensions').log, true);
+	Kernel.extend(Hub, require('framework/hub/core/hubExtensions').baas, true);
+	Kernel.extend(Hub, require('framework/hub/core/hubExtensions').keyobject, true);
+	Kernel.extend(Hub, require('framework/hub/core/hubExtensions').sqldb, true);
 	
 	// Add privileged hub extensions
 	var HubPrivileged = Kernel.hub.get('privileged');
-	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').log, true);
-	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').baas, true);
-	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').baas_priv, true);
-	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').keyobject, true);
-	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').keyobject_priv, true);
-	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').sqldb, true);
-	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').sqldb_priv, true);
-	Kernel.extend(HubPrivileged, require('framework/hub/hubExtensions').lifecycle, true);
+	Kernel.extend(HubPrivileged, require('framework/hub/core/hubExtensions').log, true);
+	Kernel.extend(HubPrivileged, require('framework/hub/core/hubExtensions').baas, true);
+	Kernel.extend(HubPrivileged, require('framework/hub/core/hubExtensions').baas_priv, true);
+	Kernel.extend(HubPrivileged, require('framework/hub/core/hubExtensions').keyobject, true);
+	Kernel.extend(HubPrivileged, require('framework/hub/core/hubExtensions').keyobject_priv, true);
+	Kernel.extend(HubPrivileged, require('framework/hub/core/hubExtensions').sqldb, true);
+	Kernel.extend(HubPrivileged, require('framework/hub/core/hubExtensions').sqldb_priv, true);
+	Kernel.extend(HubPrivileged, require('framework/hub/core/hubExtensions').lifecycle, true);
 		
 	// Define modules
 	//Kernel.module.define('moduleConsoleLogger', require('framework/module/moduleConsoleLogger').public);
